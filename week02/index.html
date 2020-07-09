@@ -1,0 +1,1206 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>计算机语言</title>
+</head>
+<style>
+    .nowrap,
+    .nowraplinks a,
+    .nowraplinks .selflink,
+    span.texhtml,
+    sup.reference a {
+        white-space: nowrap
+    }
+
+    .hlist dl,
+    .hlist ol,
+    .hlist ul {
+        margin: 0
+    }
+
+    .hlist dd,
+    .hlist dt,
+    .hlist li {
+        display: inline;
+        margin: 0
+    }
+
+    .hlist.inline,
+    .hlist.inline dl,
+    .hlist.inline ol,
+    .hlist.inline ul,
+    .hlist dl dl,
+    .hlist dl ol,
+    .hlist dl ul,
+    .hlist ol dl,
+    .hlist ol ol,
+    .hlist ol ul,
+    .hlist ul dl,
+    .hlist ul ol,
+    .hlist ul ul {
+        display: inline
+    }
+
+
+    .navbox {
+        border: 1px solid #a2a9b1;
+        width: 100%;
+        margin: auto;
+        clear: both;
+        font-size: 88%;
+        text-align: center;
+        padding: 1px
+    }
+
+    .navbox-inner,
+    .navbox-subgroup {
+        width: 100%
+    }
+
+    .navbox th,
+    .navbox-abovebelow {
+        text-align: center;
+        padding-left: 1em;
+        padding-right: 1em
+    }
+
+    th.navbox-group {
+        white-space: nowrap;
+        text-align: center;
+    }
+
+    .navbox,
+    .navbox-subgroup {
+        background: #fdfdfd
+    }
+
+    .navbox-list {
+        border-color: #fdfdfd
+    }
+
+    .navbox th{
+        background: #ccccff
+    }
+
+    .navbox-abovebelow,
+    th.navbox-group
+    {
+        background: #ddddff
+    }
+
+    .navbox-subgroup .navbox-group,
+    .navbox-subgroup .navbox-abovebelow {
+        background: #e6e6ff
+    }
+
+    .navbox-even {
+        background: #f7f7f7
+    }
+
+    .navbox-odd {
+        background: transparent
+    }
+
+    table.navbox+table.navbox {
+        margin-top: -1px
+    }
+
+    .navbox .hlist td dl,
+    .navbox .hlist td ol,
+    .navbox .hlist td ul,
+    .navbox td.hlist dl,
+    .navbox td.hlist ol,
+    .navbox td.hlist ul {
+        padding: 0.125em 0
+    }
+
+    .navbox .hlist dd,
+    .navbox .hlist dt,
+    .navbox .hlist li {
+        white-space: nowrap
+    }
+
+    .navbox .hlist dd dl,
+    .navbox .hlist dt dl,
+    .navbox .hlist li ol,
+    .navbox .hlist li ul {
+        white-space: normal
+    }
+
+
+</style>
+
+<body>
+    <h1>
+        <a href="https://zh.wikipedia.org/wiki/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%AF%AD%E8%A8%80">计算机语言分类</a>
+    </h1>
+    <ul>
+        <li> <a href="https://zh.wikipedia.org/wiki/%E6%9E%B6%E6%9E%84%E6%8F%8F%E8%BF%B0%E8%AF%AD%E8%A8%80">架构描述语言：</a>
+        </li>
+        <li>ACME（CMU开发）</li>
+        <li>AADL（SAE标准化）</li>
+        <li>C2（UCI开发）</li>
+        <li>Darwin（英国伦敦帝国学院开发）</li>
+        <li>Wright（CMU开发）</li>
+
+    </ul>
+    <ul>
+        <li><a href="https://zh.wikipedia.org/wiki/%E7%A1%AC%E4%BB%B6%E6%8F%8F%E8%BF%B0%E8%AF%AD%E8%A8%80">硬件描述语言：</a>
+        </li>
+        <li>Verilog</li>
+        <li>VHDL</li>
+    </ul>
+    <ul>
+        <li><a href="https://zh.wikipedia.org/wiki/%E7%BD%AE%E6%A0%87%E8%AF%AD%E8%A8%80">标记语言：</a>
+            （当今广泛使用的标记语言是超文本置标语言（HyperText Markup Language，HTML）和可扩展置标语言（eXtensible Markup Language，XML））</li>
+        <li>GenCode</li>
+        <li>TeX</li>
+        <li>SGML</li>
+        <li>HTML</li>
+        <li>XML</li>
+        <li>XHTML</li>
+    </ul>
+    <ul>
+        <li><a href="https://zh.wikipedia.org/wiki/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80">编程语言</a></li>
+        <li><a href="https://zh.wikipedia.org/wiki/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80%E5%88%97%E8%A1%A8">编程语言列表</a>
+        </li>
+        <li>
+            <table cellspacing="0" class="nowraplinks hlist collapsible autocollapse navbox-inner"
+                style="border-spacing:0;background:transparent;color:inherit">
+                <tbody>
+                    <tr>
+                        <th scope="row" class="navbox-group">按平台</th>
+                        <td class="navbox-list navbox-odd"
+                            style="text-align:left;border-left-width:2px;border-left-style:solid;width:100%;padding:0px">
+                            <div style="padding:0em 0.25em"></div>
+                            <table cellspacing="0" class="nowraplinks navbox-subgroup" style="border-spacing:0">
+                                <tbody>
+                                    <tr>
+                                        <th scope="row" class="navbox-group"><a href="/wiki/.NET_Framework"
+                                                class="mw-redirect" title=".NET Framework">.NET</a></th>
+                                        <td class="navbox-list navbox-odd"
+                                            style="text-align:left;border-left-width:2px;border-left-style:solid;width:100%;padding:0px">
+                                            <div style="padding:0em 0.25em">
+                                                <ul>
+                                                    <li><a href="/wiki/C%2B%2B/CLI" title="C++/CLI">C++/CLI</a></li>
+                                                    <li><a href="/wiki/C%E2%99%AF" title="C♯">C#</a></li>
+                                                    <li><a href="/wiki/F%E2%99%AF" title="F♯">F#</a></li>
+                                                    <li><a href="/wiki/IronPython" title="IronPython">IronPython</a>
+                                                    </li>
+                                                    <li><a href="/wiki/IronRuby" title="IronRuby">IronRuby</a></li>
+                                                    <li><a href="/wiki/J%E2%99%AF" title="J♯">J#</a></li>
+                                                    <li><a href="/wiki/Microsoft_Visual_C%E2%99%AF"
+                                                            title="Microsoft Visual C♯">Visual C#</a></li>
+                                                    <li><a href="/wiki/Visual_Basic_.NET"
+                                                            title="Visual Basic .NET">VB.NET</a></li>
+                                                    <li><a href="/wiki/Microsoft_Small_Basic"
+                                                            title="Microsoft Small Basic">Small Basic</a></li>
+                                                </ul>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr style="height:2px">
+                                        <td colspan="3"></td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row" class="navbox-group"><a href="/wiki/Java%E5%B9%B3%E8%87%BA"
+                                                title="Java平台">JVM</a></th>
+                                        <td class="navbox-list navbox-even"
+                                            style="text-align:left;border-left-width:2px;border-left-style:solid;width:100%;padding:0px">
+                                            <div style="padding:0em 0.25em">
+                                                <ul>
+                                                    <li><a href="/wiki/Clojure" title="Clojure">Clojure</a></li>
+                                                    <li><a href="/wiki/Groovy" title="Groovy">Groovy</a></li>
+                                                    <li><a href="/wiki/Java" title="Java">Java</a></li>
+                                                    <li><a href="/wiki/JRuby" title="JRuby">JRuby</a></li>
+                                                    <li><a href="/wiki/JScheme" title="JScheme">JScheme</a></li>
+                                                    <li><a href="/wiki/Jython" title="Jython">Jython</a></li>
+                                                    <li><span class="ilh-all" data-orig-title="Kawa" data-lang-code="en"
+                                                            data-lang-name="英语" data-foreign-title="Kawa"><span
+                                                                class="ilh-page"><a
+                                                                    href="/w/index.php?title=Kawa&amp;action=edit&amp;redlink=1"
+                                                                    class="new"
+                                                                    original-title="Kawa（页面不存在）">Kawa</a></span><span
+                                                                class="noprint ilh-comment">（<span
+                                                                    class="ilh-lang">英语</span><span
+                                                                    class="ilh-colon">：</span><span class="ilh-link"><a
+                                                                        href="https://en.wikipedia.org/wiki/Kawa"
+                                                                        class="extiw" title="en:Kawa"><span lang="en"
+                                                                            dir="auto">Kawa</span></a></span>）</span></span>
+                                                    </li>
+                                                    <li><a href="/wiki/Kotlin" title="Kotlin">Kotlin</a></li>
+                                                    <li><a href="/wiki/Scala" title="Scala">Scala</a></li>
+                                                </ul>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr style="height:2px">
+                                        <td colspan="3"></td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row" class="navbox-group"><a href="/wiki/IOS" title="IOS">iOS</a>
+                                        </th>
+                                        <td class="navbox-list navbox-odd"
+                                            style="text-align:left;border-left-width:2px;border-left-style:solid;width:100%;padding:0px">
+                                            <div style="padding:0em 0.25em">
+                                                <ul>
+                                                    <li><a href="/wiki/Swift%E8%AA%9E%E8%A8%80" class="mw-redirect"
+                                                            title="Swift语言">Swift</a></li>
+                                                    <li><a href="/wiki/Objective-C" title="Objective-C">Objective-C</a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr style="height:2px">
+                                        <td colspan="3"></td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row" class="navbox-group"><a href="/wiki/Android"
+                                                title="Android">Android</a></th>
+                                        <td class="navbox-list navbox-even"
+                                            style="text-align:left;border-left-width:2px;border-left-style:solid;width:100%;padding:0px">
+                                            <div style="padding:0em 0.25em">
+                                                <ul>
+                                                    <li><a href="/wiki/Java" title="Java">Java</a></li>
+                                                    <li><a href="/wiki/Kotlin" title="Kotlin">Kotlin</a></li>
+                                                    <li><a href="/wiki/C%2B%2B" title="C++">C++</a></li>
+                                                </ul>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr style="height:2px">
+                                        <td colspan="3"></td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row" class="navbox-group"><a href="/wiki/Fire_OS"
+                                                title="Fire OS">Fire OS</a></th>
+                                        <td class="navbox-list navbox-odd"
+                                            style="text-align:left;border-left-width:2px;border-left-style:solid;width:100%;padding:0px">
+                                            <div style="padding:0em 0.25em">
+                                                <ul>
+                                                    <li><a href="/wiki/Java" title="Java">Java</a></li>
+                                                </ul>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr style="height:2px">
+                                        <td colspan="3"></td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row" class="navbox-group"><a href="/wiki/Windows_Phone"
+                                                title="Windows Phone">Windows Phone</a></th>
+                                        <td class="navbox-list navbox-even"
+                                            style="text-align:left;border-left-width:2px;border-left-style:solid;width:100%;padding:0px">
+                                            <div style="padding:0em 0.25em">
+                                                <ul>
+                                                    <li><a href="/wiki/C%E2%99%AF" title="C♯">C#</a></li>
+                                                </ul>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <div></div>
+                        </td>
+                    </tr>
+                    <tr style="height: 2px;">
+                        <td colspan="3"></td>
+                    </tr>
+                    <tr>
+                        <th scope="row" class="navbox-group">按家族</th>
+                        <td class="navbox-list navbox-even"
+                            style="text-align:left;border-left-width:2px;border-left-style:solid;width:100%;padding:0px">
+                            <div style="padding:0em 0.25em"></div>
+                            <table cellspacing="0" class="nowraplinks navbox-subgroup" style="border-spacing:0">
+                                <tbody>
+                                    <tr>
+                                        <th scope="row" class="navbox-group"><a href="/wiki/C%E8%AF%AD%E8%A8%80"
+                                                title="C语言">C</a>/<a href="/wiki/C%2B%2B" title="C++">C++</a>语言</th>
+                                        <td class="navbox-list navbox-odd"
+                                            style="text-align:left;border-left-width:2px;border-left-style:solid;width:100%;padding:0px">
+                                            <div style="padding:0em 0.25em">
+                                                <ul>
+                                                    <li><a href="/wiki/C%E8%AF%AD%E8%A8%80" title="C语言">C</a></li>
+                                                    <li><a href="/wiki/C%2B%2B" title="C++">C++</a></li>
+                                                    <li><a href="/wiki/Turbo_C%2B%2B" title="Turbo C++">Turbo C++</a>
+                                                    </li>
+                                                    <li><a href="/wiki/Borland_C%2B%2B" title="Borland C++">Borland
+                                                            C++</a></li>
+                                                    <li><a href="/wiki/C%2B%2BBuilder" title="C++Builder">C++
+                                                            Builder</a> - <a href="/wiki/C%2B%2B/CLI"
+                                                            title="C++/CLI">C++/CLI</a></li>
+                                                    <li><a href="/wiki/C%2B%2B/CX" title="C++/CX">Visual C++组件扩展</a>
+                                                    </li>
+                                                    <li><a href="/wiki/Objective-C" title="Objective-C">Objective-C</a>
+                                                    </li>
+                                                    <li><a href="/wiki/Microsoft_Visual_C%2B%2B"
+                                                            title="Microsoft Visual C++">Visual C++</a></li>
+                                                </ul>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr style="height:2px">
+                                        <td colspan="3"></td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row" class="navbox-group"><a href="/wiki/BASIC"
+                                                title="BASIC">BASIC</a>语言</th>
+                                        <td class="navbox-list navbox-even"
+                                            style="text-align:left;border-left-width:2px;border-left-style:solid;width:100%;padding:0px">
+                                            <div style="padding:0em 0.25em"></div>
+                                            <table cellspacing="0" class="nowraplinks navbox-subgroup"
+                                                style="border-spacing:0">
+                                                <tbody>
+                                                    <tr>
+                                                        <th scope="row" class="navbox-group">有行号</th>
+                                                        <td class="navbox-list navbox-odd"
+                                                            style="text-align:left;border-left-width:2px;border-left-style:solid;width:100%;padding:0px">
+                                                            <div style="padding:0em 0.25em">
+                                                                <ul>
+                                                                    <li><a href="/wiki/BASIC" title="BASIC">BASIC</a>
+                                                                    </li>
+                                                                    <li><a href="/wiki/BASICA" title="BASICA">BASICA</a>
+                                                                    </li>
+                                                                    <li><a href="/wiki/GW-BASIC"
+                                                                            title="GW-BASIC">GW-BASIC</a></li>
+                                                                    <li><a href="/wiki/ETBASIC"
+                                                                            title="ETBASIC">ETBASIC</a></li>
+                                                                    <li><a href="/wiki/GVBASIC"
+                                                                            title="GVBASIC">GVBASIC</a></li>
+                                                                </ul>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                    <tr style="height:2px">
+                                                        <td colspan="3"></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th scope="row" class="navbox-group">无行号</th>
+                                                        <td class="navbox-list navbox-even"
+                                                            style="text-align:left;border-left-width:2px;border-left-style:solid;width:100%;padding:0px">
+                                                            <div style="padding:0em 0.25em">
+                                                                <ul>
+                                                                    <li><a href="/wiki/QBASIC" title="QBASIC">QBASIC</a>
+                                                                    </li>
+                                                                    <li><a href="/wiki/QuickBASIC"
+                                                                            title="QuickBASIC">QuickBASIC</a></li>
+                                                                    <li><a href="/wiki/True_BASIC"
+                                                                            title="True BASIC">True BASIC</a></li>
+                                                                    <li><a href="/wiki/Turbo_BASIC"
+                                                                            title="Turbo BASIC">Turbo BASIC</a></li>
+                                                                    <li><a href="/wiki/PowerBASIC"
+                                                                            title="PowerBASIC">PowerBASIC</a></li>
+                                                                    <li><a href="/wiki/FreeBasic" class="mw-redirect"
+                                                                            title="FreeBasic">FreeBasic</a></li>
+                                                                    <li><a href="/wiki/DarkBASIC"
+                                                                            title="DarkBASIC">DarkBASIC</a></li>
+                                                                    <li><a href="/wiki/Visual_Basic"
+                                                                            title="Visual Basic">Visual Basic</a></li>
+                                                                    <li><a href="/wiki/Gambas" title="Gambas">Gambas</a>
+                                                                    </li>
+                                                                    <li><a href="/wiki/Visual_Basic_.NET"
+                                                                            title="Visual Basic .NET">VB.NET</a></li>
+                                                                    <li><a href="/wiki/VBScript"
+                                                                            title="VBScript">VBScript</a></li>
+                                                                    <li><a href="/wiki/Visual_Basic_for_Applications"
+                                                                            title="Visual Basic for Applications">VBA</a>
+                                                                    </li>
+                                                                    <li><a href="/wiki/REALbasic"
+                                                                            title="REALbasic">REALbasic</a></li>
+                                                                    <li><a href="/wiki/Microsoft_Small_Basic"
+                                                                            title="Microsoft Small Basic">Small
+                                                                            Basic</a></li>
+                                                                </ul>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                            <div></div>
+                                        </td>
+                                    </tr>
+                                    <tr style="height:2px">
+                                        <td colspan="3"></td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row" class="navbox-group"><a
+                                                href="/wiki/Pascal_(%E7%A8%8B%E5%BC%8F%E8%AA%9E%E8%A8%80)"
+                                                title="Pascal (编程语言)">Pascal</a>/<a href="/wiki/Delphi"
+                                                title="Delphi">Delphi</a>语言</th>
+                                        <td class="navbox-list navbox-odd"
+                                            style="text-align:left;border-left-width:2px;border-left-style:solid;width:100%;padding:0px">
+                                            <div style="padding:0em 0.25em">
+                                                <ul>
+                                                    <li><a href="/wiki/Pascal_(%E7%A8%8B%E5%BC%8F%E8%AA%9E%E8%A8%80)"
+                                                            title="Pascal (编程语言)">Pascal</a></li>
+                                                    <li><a href="/wiki/Turbo_Pascal" title="Turbo Pascal">Turbo
+                                                            Pascal</a></li>
+                                                    <li><a href="/wiki/Object_Pascal" title="Object Pascal">Object
+                                                            Pascal</a></li>
+                                                    <li><a href="/wiki/Free_Pascal" title="Free Pascal">Free Pascal</a>
+                                                    </li>
+                                                    <li><a href="/wiki/Delphi" title="Delphi">Delphi</a></li>
+                                                    <li><a href="/wiki/Lazarus" title="Lazarus">Lazarus</a></li>
+                                                </ul>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <div></div>
+                        </td>
+                    </tr>
+                    <tr style="height: 2px;">
+                        <td colspan="3"></td>
+                    </tr>
+                    <tr>
+                        <th scope="row" class="navbox-group">按<a href="/wiki/%E7%BC%96%E7%A8%8B%E8%8C%83%E5%BC%8F"
+                                class="mw-redirect" title="编程范式">范式</a></th>
+                        <td class="navbox-list navbox-odd"
+                            style="text-align:left;border-left-width:2px;border-left-style:solid;width:100%;padding:0px">
+                            <div style="padding:0em 0.25em"></div>
+                            <table cellspacing="0" class="nowraplinks navbox-subgroup" style="border-spacing:0">
+                                <tbody>
+                                    <tr>
+                                        <th scope="row" class="navbox-group"><a
+                                                href="/wiki/%E5%A3%B0%E6%98%8E%E5%BC%8F%E7%BC%96%E7%A8%8B"
+                                                class="mw-redirect" title="声明式编程">声明式</a></th>
+                                        <td class="navbox-list navbox-odd"
+                                            style="text-align:left;border-left-width:2px;border-left-style:solid;width:100%;padding:0px">
+                                            <div style="padding:0em 0.25em"></div>
+                                            <table cellspacing="0" class="nowraplinks navbox-subgroup"
+                                                style="border-spacing:0">
+                                                <tbody>
+                                                    <tr>
+                                                        <th scope="row" class="navbox-group"><a
+                                                                href="/wiki/%E5%87%BD%E6%95%B8%E7%A8%8B%E5%BC%8F%E8%AA%9E%E8%A8%80"
+                                                                class="mw-redirect" title="函数编程语言">函数式</a></th>
+                                                        <td class="navbox-list navbox-odd"
+                                                            style="text-align:left;border-left-width:2px;border-left-style:solid;width:100%;padding:0px">
+                                                            <div style="padding:0em 0.25em"></div>
+                                                            <table cellspacing="0" class="nowraplinks navbox-subgroup"
+                                                                style="border-spacing:0">
+                                                                <tbody>
+                                                                    <tr>
+                                                                        <th scope="row" class="navbox-group">Lisp家族</th>
+                                                                        <td class="navbox-list navbox-odd"
+                                                                            style="text-align:left;border-left-width:2px;border-left-style:solid;width:100%;padding:0px">
+                                                                            <div style="padding:0em 0.25em">
+                                                                                <ul>
+                                                                                    <li><a href="/wiki/Clojure"
+                                                                                            title="Clojure">Clojure</a>
+                                                                                    </li>
+                                                                                    <li><a href="/wiki/Common_Lisp"
+                                                                                            title="Common Lisp">Common
+                                                                                            Lisp</a></li>
+                                                                                    <li><a href="/wiki/Lisp"
+                                                                                            class="mw-redirect"
+                                                                                            title="Lisp">Lisp</a></li>
+                                                                                    <li><a href="/wiki/Racket"
+                                                                                            title="Racket">Racket</a>
+                                                                                    </li>
+                                                                                    <li><a href="/wiki/Scheme"
+                                                                                            title="Scheme">Scheme</a>
+                                                                                    </li>
+                                                                                </ul>
+                                                                            </div>
+                                                                        </td>
+                                                                    </tr>
+                                                                    <tr style="height:2px">
+                                                                        <td colspan="3"></td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <th scope="row" class="navbox-group">ML家族</th>
+                                                                        <td class="navbox-list navbox-even"
+                                                                            style="text-align:left;border-left-width:2px;border-left-style:solid;width:100%;padding:0px">
+                                                                            <div style="padding:0em 0.25em">
+                                                                                <ul>
+                                                                                    <li><a href="/wiki/ML%E8%AF%AD%E8%A8%80"
+                                                                                            title="ML语言">ML</a></li>
+                                                                                    <li><a href="/wiki/Standard_ML"
+                                                                                            title="Standard ML">Standard
+                                                                                            ML</a></li>
+                                                                                    <li><a href="/wiki/OCaml"
+                                                                                            title="OCaml">OCaml</a></li>
+                                                                                    <li><a href="/wiki/F%E2%99%AF"
+                                                                                            title="F♯">F#</a></li>
+                                                                                </ul>
+                                                                            </div>
+                                                                        </td>
+                                                                    </tr>
+                                                                    <tr style="height:2px">
+                                                                        <td colspan="3"></td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td colspan="2" class="navbox-list navbox-odd"
+                                                                            style="width:100%;padding:0px">
+                                                                            <div style="padding:0em 0.25em">
+                                                                                <ul>
+                                                                                    <li><a href="/wiki/FP_(%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80)"
+                                                                                            title="FP (编程语言)">FP</a>
+                                                                                    </li>
+                                                                                    <li><a href="/wiki/Haskell"
+                                                                                            title="Haskell">Haskell</a>
+                                                                                    </li>
+                                                                                    <li><a href="/wiki/Scala"
+                                                                                            title="Scala">Scala</a></li>
+                                                                                    <li><a href="/wiki/Erlang"
+                                                                                            title="Erlang">Erlang</a>
+                                                                                    </li>
+                                                                                    <li><a href="/wiki/Elixir"
+                                                                                            title="Elixir">Elixir</a>
+                                                                                    </li>
+                                                                                    <li><a href="/wiki/Concurrent_Clean"
+                                                                                            title="Concurrent Clean">Clean</a>
+                                                                                    </li>
+                                                                                    <li><a href="/wiki/Miranda_(%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80)"
+                                                                                            title="Miranda (编程语言)">Miranda</a>
+                                                                                    </li>
+                                                                                    <li><a href="/wiki/Logo%E8%AF%AD%E8%A8%80"
+                                                                                            class="mw-redirect"
+                                                                                            title="Logo语言">Logo</a></li>
+                                                                                    <li><a href="/wiki/Wolfram%E8%AF%AD%E8%A8%80"
+                                                                                            title="Wolfram语言">Wolfram语言</a>(<a
+                                                                                            href="/wiki/Mathematica"
+                                                                                            class="mw-redirect"
+                                                                                            title="Mathematica">Mathematica</a>)
+                                                                                    </li>
+                                                                                </ul>
+                                                                            </div>
+                                                                        </td>
+                                                                    </tr>
+                                                                </tbody>
+                                                            </table>
+                                                            <div></div>
+                                                        </td>
+                                                    </tr>
+                                                    <tr style="height:2px">
+                                                        <td colspan="3"></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th scope="row" class="navbox-group"><a
+                                                                href="/wiki/%E9%80%BB%E8%BE%91%E7%BC%96%E7%A8%8B"
+                                                                class="mw-redirect" title="逻辑编程">逻辑式</a></th>
+                                                        <td class="navbox-list navbox-even"
+                                                            style="text-align:left;border-left-width:2px;border-left-style:solid;width:100%;padding:0px">
+                                                            <div style="padding:0em 0.25em">
+                                                                <ul>
+                                                                    <li><a href="/wiki/Prolog" title="Prolog">Prolog</a>
+                                                                    </li>
+                                                                </ul>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                            <div></div>
+                                        </td>
+                                    </tr>
+                                    <tr style="height:2px">
+                                        <td colspan="3"></td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row" class="navbox-group"><a
+                                                href="/wiki/%E6%8C%87%E4%BB%A4%E5%BC%8F%E7%BC%96%E7%A8%8B"
+                                                class="mw-redirect" title="指令式编程">指令式</a></th>
+                                        <td class="navbox-list navbox-even"
+                                            style="text-align:left;border-left-width:2px;border-left-style:solid;width:100%;padding:0px">
+                                            <div style="padding:0em 0.25em"></div>
+                                            <table cellspacing="0" class="nowraplinks navbox-subgroup"
+                                                style="border-spacing:0">
+                                                <tbody>
+                                                    <tr>
+                                                        <th scope="row" class="navbox-group"><a
+                                                                href="/wiki/%E7%BB%93%E6%9E%84%E5%8C%96%E7%BC%96%E7%A8%8B"
+                                                                title="结构化编程">结构化</a></th>
+                                                        <td class="navbox-list navbox-odd"
+                                                            style="text-align:left;border-left-width:2px;border-left-style:solid;width:100%;padding:0px">
+                                                            <div style="padding:0em 0.25em"></div>
+                                                            <table cellspacing="0" class="nowraplinks navbox-subgroup"
+                                                                style="border-spacing:0">
+                                                                <tbody>
+                                                                    <tr>
+                                                                        <th scope="row" class="navbox-group"><a
+                                                                                href="/wiki/%E8%BF%87%E7%A8%8B%E5%BC%8F%E7%BC%96%E7%A8%8B"
+                                                                                title="过程式编程">过程式</a></th>
+                                                                        <td class="navbox-list navbox-odd"
+                                                                            style="text-align:left;border-left-width:2px;border-left-style:solid;width:100%;padding:0px">
+                                                                            <div style="padding:0em 0.25em">
+                                                                                <ul>
+                                                                                    <li><a href="/wiki/BASIC"
+                                                                                            title="BASIC">BASIC</a></li>
+                                                                                    <li><a href="/wiki/Fortran"
+                                                                                            title="Fortran">Fortran</a>
+                                                                                    </li>
+                                                                                    <li><a href="/wiki/C%E8%AF%AD%E8%A8%80"
+                                                                                            title="C语言">C</a></li>
+                                                                                    <li><a href="/wiki/Pascal_(%E7%A8%8B%E5%BC%8F%E8%AA%9E%E8%A8%80)"
+                                                                                            title="Pascal (编程语言)">Pascal</a>
+                                                                                    </li>
+                                                                                    <li><a href="/wiki/Go"
+                                                                                            title="Go">Go</a></li>
+                                                                                </ul>
+                                                                            </div>
+                                                                        </td>
+                                                                    </tr>
+                                                                    <tr style="height:2px">
+                                                                        <td colspan="3"></td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <th scope="row" class="navbox-group"><a
+                                                                                href="/wiki/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1"
+                                                                                title="面向对象程序设计">面向对象</a></th>
+                                                                        <td class="navbox-list navbox-even"
+                                                                            style="text-align:left;border-left-width:2px;border-left-style:solid;width:100%;padding:0px">
+                                                                            <div style="padding:0em 0.25em">
+                                                                                <ul>
+                                                                                    <li><a href="/wiki/Smalltalk"
+                                                                                            title="Smalltalk">Smalltalk</a>
+                                                                                    </li>
+                                                                                    <li><a href="/wiki/Java"
+                                                                                            title="Java">Java</a></li>
+                                                                                    <li><a href="/wiki/C%E2%99%AF"
+                                                                                            title="C♯">C#</a></li>
+                                                                                    <li><a href="/wiki/Objective-C"
+                                                                                            title="Objective-C">Objective-C</a>
+                                                                                    </li>
+                                                                                    <li><a href="/wiki/C%2B%2B"
+                                                                                            title="C++">C++</a></li>
+                                                                                    <li><a href="/wiki/Eiffel"
+                                                                                            title="Eiffel">Eiffel</a>
+                                                                                    </li>
+                                                                                    <li><a href="/wiki/Python"
+                                                                                            title="Python">Python</a>
+                                                                                    </li>
+                                                                                    <li><a href="/wiki/Ruby"
+                                                                                            title="Ruby">Ruby</a></li>
+                                                                                    <li><a href="/wiki/Rust"
+                                                                                            title="Rust">Rust</a></li>
+                                                                                    <li><a href="/wiki/Swift_(%E7%A8%8B%E5%BC%8F%E8%AA%9E%E8%A8%80)"
+                                                                                            title="Swift (编程语言)">Swift</a>
+                                                                                    </li>
+                                                                                </ul>
+                                                                            </div>
+                                                                        </td>
+                                                                    </tr>
+                                                                </tbody>
+                                                            </table>
+                                                            <div></div>
+                                                        </td>
+                                                    </tr>
+                                                    <tr style="height:2px">
+                                                        <td colspan="3"></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th scope="row" class="navbox-group"><a
+                                                                href="/wiki/%E9%9D%9E%E7%BB%93%E6%9E%84%E5%8C%96%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1"
+                                                                class="mw-redirect" title="非结构化程序设计">非结构化</a></th>
+                                                        <td class="navbox-list navbox-even"
+                                                            style="text-align:left;border-left-width:2px;border-left-style:solid;width:100%;padding:0px">
+                                                            <div style="padding:0em 0.25em"></div>
+                                                            <table cellspacing="0" class="nowraplinks navbox-subgroup"
+                                                                style="border-spacing:0">
+                                                                <tbody>
+                                                                    <tr>
+                                                                        <td colspan="2" class="navbox-list navbox-even"
+                                                                            style="width:100%;padding:0px">
+                                                                            <div style="padding:0em 0.25em">
+                                                                                <ul>
+                                                                                    <li><a href="/wiki/COBOL"
+                                                                                            title="COBOL">COBOL</a></li>
+                                                                                    <li><a href="/wiki/SNOBOL"
+                                                                                            title="SNOBOL">SNOBOL</a>
+                                                                                    </li>
+                                                                                </ul>
+                                                                            </div>
+                                                                        </td>
+                                                                    </tr>
+                                                                </tbody>
+                                                            </table>
+                                                            <div></div>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                            <div></div>
+                                        </td>
+                                    </tr>
+                                    <tr style="height:2px">
+                                        <td colspan="3"></td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row" class="navbox-group"><a href="/wiki/%E5%85%83%E7%BC%96%E7%A8%8B"
+                                                title="元编程">元编程</a></th>
+                                        <td class="navbox-list navbox-odd"
+                                            style="text-align:left;border-left-width:2px;border-left-style:solid;width:100%;padding:0px">
+                                            <div style="padding:0em 0.25em"></div>
+                                            <table cellspacing="0" class="nowraplinks navbox-subgroup"
+                                                style="border-spacing:0">
+                                                <tbody>
+                                                    <tr>
+                                                        <th scope="row" class="navbox-group"><a
+                                                                href="/wiki/%E6%B3%9B%E5%9E%8B" title="泛型">泛型</a></th>
+                                                        <td class="navbox-list navbox-odd"
+                                                            style="text-align:left;border-left-width:2px;border-left-style:solid;width:100%;padding:0px">
+                                                            <div style="padding:0em 0.25em"></div>
+                                                            <table cellspacing="0" class="nowraplinks navbox-subgroup"
+                                                                style="border-spacing:0">
+                                                                <tbody>
+                                                                    <tr>
+                                                                        <th scope="row" class="navbox-group"><a
+                                                                                href="/wiki/%E6%A8%A1%E6%9D%BF%E5%85%83%E7%BC%96%E7%A8%8B"
+                                                                                class="mw-redirect" title="模板元编程">模板</a>
+                                                                        </th>
+                                                                        <td class="navbox-list navbox-odd"
+                                                                            style="text-align:left;border-left-width:2px;border-left-style:solid;width:100%;padding:0px">
+                                                                            <div style="padding:0em 0.25em">
+                                                                                <ul>
+                                                                                    <li><a href="/wiki/C%2B%2B"
+                                                                                            title="C++">C++</a></li>
+                                                                                    <li><a href="/wiki/D%E8%AF%AD%E8%A8%80"
+                                                                                            class="mw-redirect"
+                                                                                            title="D语言">D</a></li>
+                                                                                </ul>
+                                                                            </div>
+                                                                        </td>
+                                                                    </tr>
+                                                                    <tr style="height:2px">
+                                                                        <td colspan="3"></td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td colspan="2" class="navbox-list navbox-even"
+                                                                            style="width:100%;padding:0px">
+                                                                            <div style="padding:0em 0.25em">
+                                                                                <ul>
+                                                                                    <li><a href="/wiki/Ada"
+                                                                                            title="Ada">Ada</a></li>
+                                                                                    <li><a href="/wiki/C%E2%99%AF"
+                                                                                            title="C♯">C#</a></li>
+                                                                                    <li><a href="/wiki/Delphi"
+                                                                                            title="Delphi">Delphi</a>
+                                                                                    </li>
+                                                                                    <li><a href="/wiki/Eiffel"
+                                                                                            title="Eiffel">Eiffel</a>
+                                                                                    </li>
+                                                                                    <li><a href="/wiki/Java"
+                                                                                            title="Java">Java</a></li>
+                                                                                    <li><a href="/wiki/Swift_(%E7%A8%8B%E5%BC%8F%E8%AA%9E%E8%A8%80)"
+                                                                                            title="Swift (编程语言)">Swift</a>
+                                                                                    </li>
+                                                                                    <li><a href="/wiki/Visual_Basic_.NET"
+                                                                                            title="Visual Basic .NET">Visual
+                                                                                            Basic .NET</a></li>
+                                                                                </ul>
+                                                                            </div>
+                                                                        </td>
+                                                                    </tr>
+                                                                </tbody>
+                                                            </table>
+                                                            <div></div>
+                                                        </td>
+                                                    </tr>
+                                                    <tr style="height:2px">
+                                                        <td colspan="3"></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th scope="row" class="navbox-group"><a
+                                                                href="/wiki/%E5%8F%8D%E5%B0%84_(%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6)"
+                                                                title="反射 (计算机科学)">反射化</a></th>
+                                                        <td class="navbox-list navbox-even"
+                                                            style="text-align:left;border-left-width:2px;border-left-style:solid;width:100%;padding:0px">
+                                                            <div style="padding:0em 0.25em">
+                                                                <ul>
+                                                                    <li><a href="/wiki/C%E2%99%AF" title="C♯">C#</a>
+                                                                    </li>
+                                                                    <li><a href="/wiki/ECMAScript"
+                                                                            title="ECMAScript">ECMAScript</a></li>
+                                                                    <li><a href="/wiki/Java" title="Java">Java</a></li>
+                                                                    <li><a href="/wiki/Perl" title="Perl">Perl</a></li>
+                                                                    <li><a href="/wiki/PHP" title="PHP">PHP</a></li>
+                                                                    <li><a href="/wiki/Python" title="Python">Python</a>
+                                                                    </li>
+                                                                    <li><a href="/wiki/R%E8%AF%AD%E8%A8%80"
+                                                                            title="R语言">R</a></li>
+                                                                    <li><a href="/wiki/Ruby" title="Ruby">Ruby</a></li>
+                                                                </ul>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                            <div></div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <div></div>
+                        </td>
+                    </tr>
+                    <tr style="height: 2px;">
+                        <td colspan="3"></td>
+                    </tr>
+                    <tr>
+                        <th scope="row" class="navbox-group"><a href="/wiki/%E8%84%9A%E6%9C%AC%E8%AF%AD%E8%A8%80"
+                                title="脚本语言">脚本语言</a></th>
+                        <td class="navbox-list navbox-even"
+                            style="text-align:left;border-left-width:2px;border-left-style:solid;width:100%;padding:0px">
+                            <div style="padding:0em 0.25em"></div>
+                            <table cellspacing="0" class="nowraplinks navbox-subgroup" style="border-spacing:0">
+                                <tbody>
+                                    <tr>
+                                        <td colspan="2" class="navbox-list navbox-odd" style="width:100%;padding:0px">
+                                            <div style="padding:0em 0.25em">
+                                                <ul>
+                                                    <li><a href="/wiki/Lua" title="Lua">Lua</a></li>
+                                                    <li><a href="/wiki/Perl" title="Perl">Perl</a></li>
+                                                    <li><a href="/wiki/PHP" title="PHP">PHP</a></li>
+                                                    <li><a href="/wiki/Python" title="Python">Python</a></li>
+                                                    <li><a href="/wiki/Ruby" title="Ruby">Ruby</a></li>
+                                                    <li><a href="/wiki/Active_Server_Pages"
+                                                            title="Active Server Pages">ASP</a></li>
+                                                    <li><a href="/wiki/JSP" title="JSP">JSP</a></li>
+                                                    <li><a href="/wiki/Tcl" title="Tcl">Tcl/Tk</a></li>
+                                                    <li><a href="/wiki/VBScript" title="VBScript">VBScript</a></li>
+                                                    <li><a href="/wiki/AppleScript" title="AppleScript">AppleScript</a>
+                                                    </li>
+                                                    <li><a href="/wiki/AAuto" class="mw-redirect"
+                                                            title="AAuto">AAuto</a>（基于Lua）</li>
+                                                </ul>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr style="height:2px">
+                                        <td colspan="3"></td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row" class="navbox-group"><a href="/wiki/ECMAScript"
+                                                title="ECMAScript">ECMAScript</a>派生语言</th>
+                                        <td class="navbox-list navbox-even"
+                                            style="text-align:left;border-left-width:2px;border-left-style:solid;width:100%;padding:0px">
+                                            <div style="padding:0em 0.25em">
+                                                <ul>
+                                                    <li><a href="/wiki/ActionScript"
+                                                            title="ActionScript">ActionScript</a></li>
+                                                    <li><a href="/wiki/CoffeeScript"
+                                                            title="CoffeeScript">CoffeeScript</a></li>
+                                                    <li><a href="/wiki/Dart" title="Dart">Dart</a></li>
+                                                    <li><a href="/wiki/DMDScript" title="DMDScript">DMDScript</a></li>
+                                                    <li><a href="/wiki/ECMAScript" title="ECMAScript">ECMAScript</a>
+                                                    </li>
+                                                    <li><a href="/wiki/JavaScript" title="JavaScript">JavaScript</a>
+                                                    </li>
+                                                    <li><a href="/wiki/JScript" title="JScript">JScript</a></li>
+                                                    <li><a href="/wiki/TypeScript" title="TypeScript">TypeScript</a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr style="height:2px">
+                                        <td colspan="3"></td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row" class="navbox-group"><a href="/wiki/Unix_shell"
+                                                title="Unix shell">Shell语言</a></th>
+                                        <td class="navbox-list navbox-odd"
+                                            style="text-align:left;border-left-width:2px;border-left-style:solid;width:100%;padding:0px">
+                                            <div style="padding:0em 0.25em">
+                                                <ul>
+                                                    <li><a href="/wiki/Bourne_shell" title="Bourne shell">sh</a></li>
+                                                    <li><a href="/wiki/Bash" title="Bash">bash</a></li>
+                                                    <li><a href="/wiki/Sed" title="Sed">sed</a></li>
+                                                    <li><a href="/wiki/Awk" class="mw-redirect" title="Awk">awk</a></li>
+                                                    <li><a href="/wiki/PowerShell" class="mw-redirect"
+                                                            title="PowerShell">PowerShell</a></li>
+                                                    <li><a href="/wiki/C_Shell" title="C Shell">csh</a></li>
+                                                    <li><a href="/wiki/Tcsh" title="Tcsh">tcsh</a></li>
+                                                    <li><a href="/wiki/Korn_shell" class="mw-redirect"
+                                                            title="Korn shell">ksh</a></li>
+                                                    <li><a href="/wiki/Zsh" class="mw-redirect" title="Zsh">zsh</a></li>
+                                                </ul>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <div></div>
+                        </td>
+                    </tr>
+                    <tr style="height: 2px;">
+                        <td colspan="3"></td>
+                    </tr>
+                    <tr>
+                        <th scope="row" class="navbox-group">专业工具语言</th>
+                        <td class="navbox-list navbox-odd"
+                            style="text-align:left;border-left-width:2px;border-left-style:solid;width:100%;padding:0px">
+                            <div style="padding:0em 0.25em"></div>
+                            <table cellspacing="0" class="nowraplinks navbox-subgroup" style="border-spacing:0">
+                                <tbody>
+                                    <tr>
+                                        <th scope="row" class="navbox-group">科学与统计计算</th>
+                                        <td class="navbox-list navbox-odd"
+                                            style="text-align:left;border-left-width:2px;border-left-style:solid;width:100%;padding:0px">
+                                            <div style="padding:0em 0.25em">
+                                                <ul>
+                                                    <li><a href="/wiki/FORTRAN" class="mw-redirect"
+                                                            title="FORTRAN">FORTRAN</a></li>
+                                                    <li><a href="/wiki/%E4%BA%92%E5%8B%95%E5%BC%8F%E6%95%B8%E6%93%9A%E8%AA%9E%E8%A8%80"
+                                                            title="交互式数据语言">IDL</a></li>
+                                                    <li><a href="/wiki/SAS%E8%AF%AD%E8%A8%80" title="SAS语言">SAS</a></li>
+                                                    <li><a href="/wiki/SPSS" title="SPSS">SPSS</a></li>
+                                                    <li><a href="/wiki/MATLAB" title="MATLAB">MATLAB</a></li>
+                                                    <li><a href="/wiki/Maxima" title="Maxima">Maxima</a></li>
+                                                    <li><a href="/wiki/Wolfram_%E8%AF%AD%E8%A8%80" class="mw-redirect"
+                                                            title="Wolfram 语言">Wolfram 语言</a>(<a
+                                                            href="/wiki/Mathematica" class="mw-redirect"
+                                                            title="Mathematica">Mathematica</a>)</li>
+                                                    <li><a href="/wiki/Maple" title="Maple">Maple</a></li>
+                                                    <li><a href="/wiki/MathCad" title="MathCad">MathCad</a></li>
+                                                    <li><a href="/wiki/Scilab" title="Scilab">Scilab</a></li>
+                                                    <li><a href="/wiki/GNU_Octave" title="GNU Octave">GNU Octave</a>
+                                                    </li>
+                                                    <li><a href="/wiki/R%E8%AF%AD%E8%A8%80" title="R语言">R</a></li>
+                                                    <li><span class="ilh-all" data-orig-title="S-Plus"
+                                                            data-lang-code="en" data-lang-name="英语"
+                                                            data-foreign-title="S-Plus"><span class="ilh-page"><a
+                                                                    href="/w/index.php?title=S-Plus&amp;action=edit&amp;redlink=1"
+                                                                    class="new"
+                                                                    original-title="S-Plus（页面不存在）">S-Plus</a></span><span
+                                                                class="noprint ilh-comment">（<span
+                                                                    class="ilh-lang">英语</span><span
+                                                                    class="ilh-colon">：</span><span class="ilh-link"><a
+                                                                        href="https://en.wikipedia.org/wiki/S-Plus"
+                                                                        class="extiw" title="en:S-Plus"><span lang="en"
+                                                                            dir="auto">S-Plus</span></a></span>）</span></span>
+                                                    </li>
+                                                    <li><a href="/wiki/Visual_Basic_for_Applications"
+                                                            title="Visual Basic for Applications">Visual Basic for
+                                                            Applications</a></li>
+                                                    <li><a href="/wiki/Julia_(%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80)"
+                                                            title="Julia (编程语言)">Julia</a></li>
+                                                </ul>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr style="height:2px">
+                                        <td colspan="3"></td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row" class="navbox-group"><a href="/wiki/GPU" class="mw-redirect"
+                                                title="GPU">GPU</a>用着色器语言</th>
+                                        <td class="navbox-list navbox-even"
+                                            style="text-align:left;border-left-width:2px;border-left-style:solid;width:100%;padding:0px">
+                                            <div style="padding:0em 0.25em">
+                                                <ul>
+                                                    <li><a href="/wiki/Cg%E8%AA%9E%E8%A8%80" title="Cg语言">Cg</a></li>
+                                                    <li><a href="/wiki/GLSL" title="GLSL">GLSL</a></li>
+                                                    <li><a href="/wiki/HLSL" class="mw-redirect" title="HLSL">HLSL</a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr style="height:2px">
+                                        <td colspan="3"></td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row" class="navbox-group"><a href="/wiki/%E6%95%B0%E6%8D%AE%E5%BA%93"
+                                                title="数据库">数据库</a>相关编程语言</th>
+                                        <td class="navbox-list navbox-odd"
+                                            style="text-align:left;border-left-width:2px;border-left-style:solid;width:100%;padding:0px">
+                                            <div style="padding:0em 0.25em">
+                                                <ul>
+                                                    <li><span class="ilh-all" data-orig-title="xBase"
+                                                            data-lang-code="en" data-lang-name="英语"
+                                                            data-foreign-title="xBase"><span class="ilh-page"><a
+                                                                    href="/w/index.php?title=XBase&amp;action=edit&amp;redlink=1"
+                                                                    class="new"
+                                                                    original-title="XBase（页面不存在）">xBase</a></span><span
+                                                                class="noprint ilh-comment">（<span
+                                                                    class="ilh-lang">英语</span><span
+                                                                    class="ilh-colon">：</span><span class="ilh-link"><a
+                                                                        href="https://en.wikipedia.org/wiki/xBase"
+                                                                        class="extiw" title="en:xBase"><span lang="en"
+                                                                            dir="auto">xBase</span></a></span>）</span></span>
+                                                        <ul>
+                                                            <li><a href="/wiki/Clipper" title="Clipper">Clipper</a></li>
+                                                            <li><a href="/wiki/Visual_FoxPro"
+                                                                    title="Visual FoxPro">Visual FoxPro</a></li>
+                                                        </ul>
+                                                    </li>
+                                                    <li><a href="/wiki/SQL" title="SQL">SQL</a>
+                                                        <ul>
+                                                            <li><a href="/wiki/PL-SQL" title="PL-SQL">PL/SQL</a></li>
+                                                            <li><a href="/wiki/Transact-SQL"
+                                                                    title="Transact-SQL">T-SQL</a></li>
+                                                            <li><span class="ilh-all" data-orig-title="SQL/PSM"
+                                                                    data-lang-code="en" data-lang-name="英语"
+                                                                    data-foreign-title="SQL/PSM"><span
+                                                                        class="ilh-page"><a
+                                                                            href="/w/index.php?title=SQL/PSM&amp;action=edit&amp;redlink=1"
+                                                                            class="new"
+                                                                            original-title="SQL/PSM（页面不存在）">SQL/PSM</a></span><span
+                                                                        class="noprint ilh-comment">（<span
+                                                                            class="ilh-lang">英语</span><span
+                                                                            class="ilh-colon">：</span><span
+                                                                            class="ilh-link"><a
+                                                                                href="https://en.wikipedia.org/wiki/SQL/PSM"
+                                                                                class="extiw" title="en:SQL/PSM"><span
+                                                                                    lang="en"
+                                                                                    dir="auto">SQL/PSM</span></a></span>）</span></span>
+                                                            </li>
+                                                        </ul>
+                                                    </li>
+                                                    <li><a href="/wiki/%E8%AF%AD%E8%A8%80%E9%9B%86%E6%88%90%E6%9F%A5%E8%AF%A2"
+                                                            title="语言集成查询">LINQ</a></li>
+                                                    <li><span class="ilh-all" data-orig-title="XQuery"
+                                                            data-lang-code="en" data-lang-name="英语"
+                                                            data-foreign-title="XQuery"><span class="ilh-page"><a
+                                                                    href="/w/index.php?title=XQuery&amp;action=edit&amp;redlink=1"
+                                                                    class="new"
+                                                                    original-title="XQuery（页面不存在）">XQuery</a></span><span
+                                                                class="noprint ilh-comment">（<span
+                                                                    class="ilh-lang">英语</span><span
+                                                                    class="ilh-colon">：</span><span class="ilh-link"><a
+                                                                        href="https://en.wikipedia.org/wiki/XQuery"
+                                                                        class="extiw" title="en:XQuery"><span lang="en"
+                                                                            dir="auto">XQuery</span></a></span>）</span></span>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr style="height:2px">
+                                        <td colspan="3"></td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row" class="navbox-group">工业与辅助设计</th>
+                                        <td class="navbox-list navbox-odd"
+                                            style="text-align:left;border-left-width:2px;border-left-style:solid;width:100%;padding:0px">
+                                            <div style="padding:0em 0.25em">
+                                                <ul>
+                                                    <li><a href="/wiki/AutoCAD" title="AutoCAD">AutoCAD</a></li>
+                                                    <li><a href="/wiki/AutoLISP" title="AutoLISP">AutoLISP</a></li>
+                                                </ul>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr style="height:2px">
+                                        <td colspan="3"></td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row" class="navbox-group">电子艺术和视觉交互设计</th>
+                                        <td class="navbox-list navbox-even"
+                                            style="text-align:left;border-left-width:2px;border-left-style:solid;width:100%;padding:0px">
+                                            <div style="padding:0em 0.25em">
+                                                <ul>
+                                                    <li><a href="/wiki/Processing" title="Processing">Processing</a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr style="height:2px">
+                                        <td colspan="3"></td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row" class="navbox-group"><a
+                                                href="/wiki/%E8%A6%96%E8%A6%BA%E5%8C%96%E7%A8%8B%E5%BC%8F%E8%A8%AD%E8%A8%88%E8%AA%9E%E8%A8%80"
+                                                title="可视化程序设计语言">可视化程序设计语言</a></th>
+                                        <td class="navbox-list navbox-odd"
+                                            style="text-align:left;border-left-width:2px;border-left-style:solid;width:100%;padding:0px">
+                                            <div style="padding:0em 0.25em">
+                                                <ul>
+                                                    <li><a href="/wiki/Scratch" title="Scratch">Scratch</a></li>
+                                                    <li><a href="/wiki/Blockly" title="Blockly">Blockly</a></li>
+                                                    <li><a href="/wiki/LabVIEW" title="LabVIEW">LabVIEW</a></li>
+                                                    <li><a href="/wiki/Tynker" title="Tynker">Tynker</a></li>
+                                                    <li><a href="/wiki/Snap!" title="Snap!">Snap!</a></li>
+                                                    <li><a href="/wiki/Simulink" title="Simulink">Simulink</a></li>
+                                                    <li><a href="/wiki/Automator" title="Automator">Automator</a></li>
+                                                    <li><a href="/wiki/Stateflow" title="Stateflow">Stateflow</a></li>
+                                                    <li><a href="/wiki/Squeak" title="Squeak">Squeak</a></li>
+                                                    <li><a href="/wiki/MIT%E6%87%89%E7%94%A8%E9%96%8B%E7%99%BC%E8%80%85"
+                                                            class="mw-redirect" title="MIT应用开发者">MIT应用开发者</a></li>
+                                                </ul>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <div></div>
+                        </td>
+                    </tr>
+                    <tr style="height: 2px;">
+                        <td colspan="3"></td>
+                    </tr>
+                    <tr>
+                        <th scope="row" class="navbox-group">其它</th>
+                        <td class="navbox-list navbox-even"
+                            style="text-align:left;border-left-width:2px;border-left-style:solid;width:100%;padding:0px">
+                            <div style="padding:0em 0.25em"></div>
+                            <table cellspacing="0" class="nowraplinks navbox-subgroup" style="border-spacing:0"></table>
+                            <div>
+                                <ul>
+                                    <li><a href="/wiki/%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80" title="汇编语言">汇编语言</a></li>
+                                    <li><a href="/wiki/ALGOL" title="ALGOL">ALGOL</a></li>
+                                    <li><a href="/wiki/APL%E8%AF%AD%E8%A8%80" class="mw-redirect"
+                                            title="APL语言">APL</a>/<a href="/wiki/J%E8%AF%AD%E8%A8%80" title="J语言">J</a>
+                                    </li>
+                                    <li><a href="/wiki/Falcon" title="Falcon">Falcon</a></li>
+                                    <li><a href="/wiki/Forth" title="Forth">Forth</a></li>
+                                    <li><a href="/wiki/Io_(%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80)"
+                                            title="Io (编程语言)">Io</a></li>
+                                    <li><a href="/wiki/%E6%9C%A8%E8%98%AD_(%E7%A8%8B%E5%BC%8F%E8%AA%9E%E8%A8%80)"
+                                            title="木兰 (编程语言)">Mulan</a></li>
+                                    <li><span class="ilh-all" data-orig-title="MUMPS" data-lang-code="en"
+                                            data-lang-name="英语" data-foreign-title="MUMPS"><span class="ilh-page"><a
+                                                    href="/w/index.php?title=MUMPS&amp;action=edit&amp;redlink=1"
+                                                    class="new" original-title="MUMPS（页面不存在）">MUMPS</a></span><span
+                                                class="noprint ilh-comment">（<span class="ilh-lang">英语</span><span
+                                                    class="ilh-colon">：</span><span class="ilh-link"><a
+                                                        href="https://en.wikipedia.org/wiki/MUMPS" class="extiw"
+                                                        title="en:MUMPS"><span lang="en"
+                                                            dir="auto">MUMPS</span></a></span>）</span></span></li>
+                                    <li><a href="/wiki/PL/I" title="PL/I">PL/I</a></li>
+                                    <li><a href="/wiki/PostScript" title="PostScript">PostScript</a></li>
+                                    <li><a href="/wiki/REXX" title="REXX">REXX</a></li>
+                                    <li><a href="/wiki/SAC%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80" title="SAC编程语言">SAC</a>
+                                    </li>
+                                    <li><a href="/wiki/Self" title="Self">Self</a></li>
+                                    <li><a href="/wiki/Simula" title="Simula">Simula</a></li>
+                                </ul>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </li>
+    </ul>
+    <ul>
+        <li><a href="https://zh.wikipedia.org/wiki/%E6%9F%A5%E8%A9%A2%E8%AA%9E%E8%A8%80">查询语言</a></li>
+        <li>en:Contextual Query Language</li>
+        <li>DMX（en:Data Mining Extensions）</li>
+        <li>LDAP</li>
+        <li>LINQ</li>
+        <li>MQL（en:Molecular Query Language）</li>
+        <li>OQL（en:Object Query Language）</li>
+        <li>en:RDF query language</li>
+        <li>SMARTS（en:Smiles arbitrary target specification）</li>
+        <li><a href="/wiki/SQL" title="SQL">SQL</a>
+            <ul>
+                <li>DDL（数据定义语言）</li>
+                <li>DML（数据操作语言）</li>
+                <li>DCL（数据控制语言）</li>
+            </ul>
+        </li>
+        <li>XPath为XML路径语言</li>
+        <li>YQL（en:Yahoo! Query Language）</li>
+    </ul>
+</body>
+
+</html>

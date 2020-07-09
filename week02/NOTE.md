@@ -21,3 +21,15 @@
 * *表示重复多次
 * |表示或
 * +至少一次
+
+### 现代语言好分类
+* 形式语言-用途
+    * 数据描述语言
+    `JSON, HTML, XML, SQL, CSS`
+    * 编程语言
+    `C, C++, C#, JAVA, Python, Ruby, Perl, Lisp, T-SQL, Clojure, Haskell, JavaScript`
+* 形式语言-表达方式
+    * 声明式语言
+    `JSON, HTML, XAML, SQL, CSS, Lisp, Clojure, Haskell`
+    * 命令型语言
+    `C, C++, JAVA, C#, Python, Ruby, Perl, JavaScript`
