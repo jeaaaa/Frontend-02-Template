@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>stringToUTF-8</title>
+</head>
+
+<body>
+
+    <script>
+        // 将字符串格式化为UTF8编码的字节
+        function UTF8_Encoding(string) {
+            var utf8_code = [];
+            for (var i = 0; i < string.length; i++) {
+                //返回UTF-16代码单元
+                var code = string.charCodeAt(i);
+                //判断16进制所在的区间，以此认定字节长度，然后进行补码
+                if (0x00 <= code && code <= 0x7f) {
+                    utf8_code.push(deal(code));
+                } else if (0x80 <= code && code <= 0x7ff) {
+                    utf8_code.push(deal((192 | (31 & (code >> 6)))));
+                    utf8_code.push(deal((128 | (63 & code))));
+                } else if ((0x800 <= code && code <= 0xd7ff) || (0xe000 <= code && code <= 0xffff)) {
+                    utf8_code.push(deal((224 | (15 & (code >> 12)))));
+                    utf8_code.push(deal((128 | (63 & (code >> 6)))));
+                    utf8_code.push(deal((128 | (63 & code))));
+                }
+            }
+            return utf8_code
+        }
+
+        function deal(str) {
+            return Number(str.toString(2));
+        }
+
+        //参考 https://segmentfault.com/a/1190000005794963
+        console.log(UTF8_Encoding('a'))
+
+    </script>
+</body>
+
+</html>

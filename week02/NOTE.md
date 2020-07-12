@@ -81,3 +81,65 @@ Program： 去管理语言的模块和安装，npm
 
 语法>语义>运行时<br/>
 通过一定的语法表达一定的语义最后改变了运行时的状态
+
+## 重学JavaScript
+### Atom
+Grammar|Runtime
+:--:|:--:
+Literal(字面量)|Types
+Variable（变量）|Exection Context
+Keywords（关键字）|&nbsp;
+Whitespace（空白符，换行符）|&nbsp;
+Line Termintor（；）|&nbsp;
+
+#### Types
+* Number
+* String
+* Boolean
+* Object
+* Undefined：代表没有赋值
+* Null：代表有值，但是是空；typeof的值会返回Object
+* Symbol：专门用于Object属性名
+* Bigint(在途)
+
+##### Number
+double float（双精度浮点类型)：sign(1个符号)，exponnt(11个指数位)，fraction(52个精度位)，每位就是一个bit，可以使0或1
+float: 浮点数，小数点可以来回浮动；把一个数字拆成指数和有效位数，有效位数决定了浮点数表示的精度，指数决定了浮点数表示的范围
+#### String
+* charcter(字符)：一个抽象的表达，结合字体才会变成一个可见的形象
+* code point： 用来表示charcter，规定的一个数字
+* encoding
+##### 字符集
+* ASCII: 只规定了计算机里常用的127个字符，包括26个大写字母26个小写字母数字0-9和制表符换行符号等特殊符号
+* Uniode：ASCII和Latin-1的超集，并支持地球上几乎所有的语言
+* UCS
+* GB：国标，跟Unicode不兼容，中文编码比Unicode省空间
+    * GB2312
+    * GBK(GB13000)
+    * GB18030
+* ISO-8859：没有中文版本，这个系列互不兼容
+* BIG5：大五码，繁体
+
+GB，ISO，BIG5都属于一定的国家地区语言的特定编码格式，互相之间冲突，不能混合使用
+##### 编码
+* UTF-8
+* UTF-16
+#### Boolean
+* true
+* false
+#### Null&Undefined
+* null： 表示有值，但是是空，是关键字
+* undefined： 未定义，是一个全局变量，使用void 0来产生undefined
+#### Object
+任何一个对象都是唯一的，这与他本身的状态无关；<br/>
+所以，即使状态完全一致的两个对象，也并不相等；<br/>
+我们用状态来描述对象；<br/>
+我们的状态改变即是行为；<br/>
+对象三要素：唯一标识性，状态，行为。<br/>
+##### class
+类是一种常见的描述对象的方式;
+##### prototype
+原型是一种更接近人类原始认知的描述对象的方法；
+我们并不试图做严谨的分类，而是才用“相似”这样的方式去描述对象；
+任何对象仅仅需要描述他自己与原型的区别即可；
+
