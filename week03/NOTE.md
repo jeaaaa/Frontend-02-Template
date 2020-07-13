@@ -1,24 +1,29 @@
 # 学习笔记
 ## 表达式（Expression）
-* Grammer
-    * Grammar Tree vs Priority
-    * Left hand side & Right hand Side
-* Runtime 
-    * Type Convertion
-    * Reference
+### Grammer
+**Grammar Tree(语法树) vs Priority(优先级)**<br/>
+**Left hand side & Right hand Side**
+### Runtime 
+**Type Convertion(类型转换)**<br/>
+**Reference(引用类型)**
 
-* Tree vs Priority
-    * Member
-        * a.b
-        * a[b]
-        * foo``string``
-        * super.b
-        * new.target
-        * new Foo()
-    * New
-        * new Foo
+#### Tree vs Priority
+* \+ -
+* \* /
+* ()
+运算符的优先级会影响到语法树的构成
+##### Expressions
+* Member
+    * a.b
+    * a[b]
+    * foo``string``
+    * super.b
+    * new.target
+    * new Foo()
+* New
+    * new Foo
 
-* Reference
+#### Reference
 Object, key
 delete, assign
 
