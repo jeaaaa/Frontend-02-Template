@@ -47,11 +47,11 @@ delete, assign
         * !a
         * await a
     * Exponentall
-        * "**"
+        * \**
     * Multiplicative
-        * / * %
+        * \* / %
     * Additive
-        * - +
+        *  \- \+
     * Shift
         * << >> >>>
     * Relationship
@@ -107,4 +107,3 @@ Symbol|new Object(Symbol("a"))|Symbol("a")
 * Exercise
     * StringToNumber
     * NumberToString
-    
