@@ -13,68 +13,84 @@
 * ()
 运算符的优先级会影响到语法树的构成
 ##### Expressions
-* Member
-    * a.b
-    * a[b]
-    * foo``string``
-    * super.b
-    * new.target
-    * new Foo()
-* New
-    * new Foo
+###### Member（运算符优先级最高，往下依次递减）
+    * a.b：成员访问
+    * a[b]：成员访问，支持运行时的字符串
+    * foo\`string\`：反引号字符串，前面加函数名，反引号字符串会传进函数当做参数
+    * super.b：super在class构造函数里使用
+    * super['b']
+    * new.target：前后两个词固定
+    * new Foo()：带括号的new优先级跟前面的相同，不带括号的new被单独设为一个优先级new expression并且优先级更低
+###### New
+    * new Foo：比带括号的new运算优先级低
 
-#### Reference
-Object, key
-delete, assign
+Example:
+```
+new a()();  //new ()的结构优先级更高，所以第一个括号跟着new运算
+new new a();    // 因为带括号的new运算优先级更高，括号回合第二个new结合
+```
 
-* Expressions
-    * Call
-        * foo()
-        * super()
-        * foo()['b']
-        * foo().b
-        * foo()'abc'
-    * Left Handside & Right Handside
-        example: a.b=c;<br/>a+b=c;
-    * Update
-        * a++
-        * a--
-        * --a
-        * ++a
-        example: ++a++; <br/> ++ (a++);
-    * Unary
-        * delete a.b
-        * void foo()
-        * typeof a
-        * +a
-        * -a
-        * ~a
-        * !a
-        * await a
-    * Exponentall
-        * \**
-    * Multiplicative
-        * \* / %
-    * Additive
-        *  \- \+
-    * Shift
-        * << >> >>>
-    * Relationship
-        * < > <= >= instanceof in
-    * Equality
-        * ==
-        * !=
-        * ===
-        * !==
-    * Bitwise
-        * & ^ |
-    * Logical
-        * &&
-        * ||
-    * Conditional
-        * xx ? xx : xx
+###### Reference，运行时存在的类型，称作标准中的类型
+a.b访问的一个属性，从属性里面取出来的引用，即reference引用类型；<br/>
+一个reference类型取出来的是一个object和一个key，完全记录了member运算的前半部分和后半部分；
+* Object 
+* key：可以使string也可以是symbol
+列如：delete, assign会用到reference类型，+ -运算就直接解引用
 
-* Type Convertion
+
+###### Call
+* foo()
+* super()
+* foo()['b']：['b']，.b，\`b\`运算优先级会降低到call expression
+* foo().b
+* foo()'abc'
+###### Left Handside & Right Handside
+    example: a.b=c; c = a+b;    //不能使用a+b=c
+// a.b是一个left handside expression，a+b是一个right handside expression;
+// 只有left handside expression才有资格放到等号左边
+* Update   （从这里往下的expression都是right handside expression）
+    * a++
+    * a--
+    * --a
+    * ++a
+    example: ++a++; <br/> ++ (a++);
+    // 都不合法
+* Unary（单目运算符）
+    * delete a.b
+    * void foo()
+    * typeof a
+    * +a
+    * -a
+    * ~a： 位运算，把整数按位取反，不是整数就强制转为整数
+    * !a： ！！任意类型强制转换为Boolean
+    * await a
+* Exponentall
+    * \**   
+唯一一个右结合运算符，乘方
+    example：
+        3 ** 2 ** 3； //先算2的三次方，再算3的八次方
+* Multiplicative
+    * \* / %
+* Additive
+    *  \- \+
+* Shift（位运算）
+    * << >> >>>
+* Relationship
+    * < > <= >= instanceof in
+* Equality
+    * ==   //会类型转换后比较
+    * !=
+    * ===
+    * !==
+* Bitwise
+    * & ^ |
+* Logical
+    * &&
+    * ||
+* Conditional
+    * xx ? xx : xx  
+
+###### Type Convertion（类型转换）
     * a+b
     * "false" == false;
     * a[o] = 1;
