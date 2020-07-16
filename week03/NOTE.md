@@ -92,20 +92,20 @@ a.b访问的一个属性，从属性里面取出来的引用，即reference引�
 
 ###### Type Convertion（类型转换）
     * a+b
-    * "false" == false;
+    * "false" == false; //false, 类型相同直接比较，类型不同基本上全转为number再互相比较 
     * a[o] = 1;
 
 &nbsp;|Number|String|Boolean|Undefined|Null|Object|Symbol
 :--:|:--:|:--:|:--:|:--:|:--:|:--:|:--:
-Number|-|&nbsp;|0 false|X|X|Boxing|X
-String|&nbsp;|-|"" false|X|X|Boxing|X
+Number|-|（规则较为复杂）|0 false|X|X|Boxing|X
+String|（规则较为复杂）|-|"" false|X|X|Boxing|X
 Boolean|true 1<br/> false 0|'true'<br/>'false'|-|X|X|Boxing|X
 Undefined|NaN|'Undefined'|false|-|X|X|X
 Null|0|'null'|false|X|-|X|X
 Object|valueOf|valueOf<br/>toString|true|X|X|-|X
 Symbol|X|X|X|X|X|Boxing|-
 
-* unboxing
+* unboxing （拆箱）
     * ToPremotive
     * toString vs valueOf
     * Symbol.toPrimitive
