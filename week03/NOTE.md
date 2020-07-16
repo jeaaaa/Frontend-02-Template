@@ -91,9 +91,11 @@ a.b访问的一个属性，从属性里面取出来的引用，即reference引�
     * xx ? xx : xx  
 
 ###### Type Convertion（类型转换）
-    * a+b
-    * "false" == false; //false, 类型相同直接比较，类型不同基本上全转为number再互相比较 
-    * a[o] = 1;
+```
+a+b
+"false" == false; //false, 类型相同直接比较，类型不同基本上全转为number再互相比较 
+a[o] = 1;
+```
 
 &nbsp;|Number|String|Boolean|Undefined|Null|Object|Symbol
 :--:|:--:|:--:|:--:|:--:|:--:|:--:|:--:
@@ -105,18 +107,22 @@ Null|0|'null'|false|X|-|X|X
 Object|valueOf|valueOf<br/>toString|true|X|X|-|X
 Symbol|X|X|X|X|X|Boxing|-
 
-* unboxing （拆箱）
-    * ToPremotive
+* unboxing （拆箱转换）
+    * ToPrimitive
     * toString vs valueOf
     * Symbol.toPrimitive
     ```
     var o={
-        toString(){ return "2"};
-        valueOf(){ return 1 };
-        [Symbol.toPrimitive](){return 3};
+        toString(){ return "2"},
+        valueOf(){ return 1 },
+        [Symbol.toPrimitive](){return 3}
     }
+    var x={};
+    // x[o] = 1;
+    console.log("x"+o);
+    // 定义了symbol.toprimitive会忽略toString和valueof，否则会根据优先级决定toString和valueOf的先后
     ```
-* Boxing
+* Boxing（装箱转换）
 
 类型|对象|值
 :--:|:--:|:--:
@@ -125,6 +131,80 @@ String|new String("a")|"a"
 Boolean|new Boolean(true)|true
 Symbol|new Object(Symbol("a"))|Symbol("a")
 
-* Exercise
-    * StringToNumber
-    * NumberToString
+
+## 语句（Statement）
+
+* Grammer
+    * 简单语句
+    * 组合语句
+    * 声明
+* Runtime
+    * Completion Record  (语句执行的结果记录)
+    * Lexical Environment   （作用域）
+
+### Completion Record 
+一种数据结构类型，用来储存语句运行时的结果；其组成分成三部分：
+ * [[type]]（类型）: nomal, break, continue, return, or throw
+    * 子语句有时候变成return或者throw穿透力比较强的，就会影响到它的父语句completion的type变化
+ 
+ * [[value]]（返回值）: 基本类型
+ * [[target]]: label
+    * 语句前面加上一个标识符和一个冒号，这样语句就变成一个带label的语句。break和continue可能会跟带label的语句发生交互
+
+### 简单语句
+里面不会再容纳其他语句的语句；
+* ExpressionStatement：表达式语句，只有表达式语句完全是由表达式组成
+* EmptyStatement：空语句，单独的一个分号
+* DebuggerStatement：debugger关键字
+* ThrowStatement：抛出异常，throw 
+* ContinueStatement：结束当次循环后面的循环继续
+* BreakStatement：结束整个循环
+* ReturnStatement：函数里使用，返回函数的值
+
+### 复合语句
+* BlockStatement： 一对花括号中间一个语句的列表，所有需要单条语句的地方都变成可以用多一条语句；
+    * [[type]]：normal
+    * [[value]]：--
+    * [[target]]：--
+    ```
+    {
+
+    }
+    ```
+* IfStatement：分支结构，条件语句；
+    * while(){  }
+    * do    while( );   //至少执行一次
+    * for( ; ; ;){      }
+    * for( in ){    }
+    * for( of ){    }
+    // for语句let声明会产生独立作用域
+
+* SwitchStatement：多分支的结构，建议用多个if else代替switch
+* IterationStatement：循环
+* WithStatement：通过with打开一个对象，把这个对象的所有属性直接放进作用域里面去
+* LabelledStatement：在语句前加上label
+* TryStatement：三段结构，包含try catch和finally
+    * try{  }catch( ){ }finally{   }   //花括号不能省略
+
+### 声明
+* FunctionDeclaration：函数声明
+* GeneratorDeclaration：function后面加*，产生器
+* AsyncFunctionDeclaration：function前面加Async，异步函数
+* AsyncGeneratorDeclaration：function前面加Async，后面加*，异步产生器
+* VariableStatement：变量声明
+* ClassDeclaration： 类声明
+* LexicalDeclaration： const, let
+
+```
+function
+function *
+async function
+async function *
+var
+```
+
+```
+class
+const
+let
+```
