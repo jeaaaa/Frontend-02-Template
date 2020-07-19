@@ -201,10 +201,93 @@ function *
 async function
 async function *
 var
+// 作用范围只认function body，没有先后关系永远会被当做出现在函数第一行去处理
 ```
 
 ```
 class
 const
 let
+// 在声明之前去使用会报错，这个错误可以被try catch去处理
 ```
+
+#### 预处理机制
+指在一段代码执行之前，JavaScript引擎会对代码本身做一次预处理<br/>
+所有声明都有一个预处理机制，都能把变量变成一个局部变量
+```
+var a=2;
+void function(){
+    a = 1;
+    console.log(a)
+    return; 
+    var a;
+}();
+console.log(a);
+// var 存在变量提升，不管写在哪儿都没有区别，都会被预处理挑出来，把变量声明到函数的作用级别
+```
+
+```
+var b=2;
+void function(){
+    b = 1;
+    console.log(b)
+    return; 
+    const b;
+}();
+console.log(b);
+// const声明的b，成为了一个局部变量，会执行报错但是并没有影响到外面的b
+```
+
+#### 作用域 (变量从哪儿到哪儿发生作用)
+var 的作用域前后都有，作用域是它所在的函数体
+const 的作用域就在它所在的花括号
+```
+var a = 2;
+void function(){
+    a = 1;
+    {
+        const a;
+    }
+}();
+console.log(a);
+```
+
+## JavaScript执行粒度（运行时）
+* 宏任务：传给JavaScript引擎的任务
+* 微任务（Promise）：在JavaScript引擎内部的任务，由promise来产生，且只有promise产生微任务
+* 函数调用（Execution Context）
+* 语句/声明（Completion Record)
+* 表达式（Reference）
+* 字面量/变量/this
+
+### 宏任务和微任务
+
+### 事件循环
+get code -> execute -> wait -> get code
+
+### 函数调用
+* execution context  (函数执行上下文)
+    // 没有一个execution context同时拥有下面七种
+    * code evaluation state：用于async和generator函数，保存代码执行到哪儿的信息
+    * function：由function来初始化的execution context会有
+    * script or module： 二者选一，会有相应的部分
+    * generator：generator函数创建
+    * realm：保存着我们使用的所有内置对象
+    * lexicalenviroment：和variableenviroment分别代表我们执行代码中所需要访问的环境，即保存变量
+    * variableenviroment：历史遗留，仅仅用于处理var声明变量
+
+* Lexicalenviroment
+    * this
+    * new.target
+    * super
+    * 变量
+
+* environment records（环境保存）
+    * declarative environment records
+        * function environment records
+        * module environment records
+    * global environment records
+    * object environment records
+
+* function-closure
+js每个函数都会产生一个闭包，闭包分成代码部分和环境部分
