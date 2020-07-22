@@ -27,6 +27,6 @@ while(input){
     // 获取输入
     state = state(input); //把状态机的返回值作为下一个状态
 }
-
 ```
 
+### HTTP的协议解析
