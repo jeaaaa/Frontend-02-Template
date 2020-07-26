@@ -30,3 +30,23 @@ while(input){
 ```
 
 ### HTTP的协议解析
+
+* tcp的基础知识
+    * 流：TCP数据传输，保证前后数据正确
+    * 端口
+    * require('net')：node里面使用
+* IP的基础知识
+    * 包
+    * IP地址
+    * libnet/libpcap
+* HTTP（一个request对应着一个response）
+    * request
+    * response
+    * http协议，文本型协议，所有的内容都是字符串，每个字节都是字符串的一部分
+        * request line(POST,GET/HTTP/1.1)
+        * headers（行数不固定，一个空行为标志进行结束）
+            * Host:127.0.0.1
+            * Content-Type: application/x-www-form-urlencoded
+        * body （由content-type规定格式  ）
+
+从使用设计接口形式
