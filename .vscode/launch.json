@@ -5,12 +5,33 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "type": "pwa-chrome",
+            "name": "Attach",
+            "port": 9229,
+            "request": "attach",
+            "skipFiles": [
+                "<node_internals>/**"
+            ],
+            "type": "pwa-node"
+        },
+        {
+            "type": "node",
             "request": "launch",
-            "name": "Launch Chrome against localhost",
-            "url": "http://localhost:8080",
-            "webRoot": "${workspaceFolder}",
-            "runtimeExecutable": "/Users/jea/.nvm/versions/node/v12.16.1/bin"
+            "name": "启动程序",
+            "skipFiles": [
+                "<node_internals>/**"
+            ],
+            "program": "${workspaceFolder}/week04/toyBrowser/client.js",
+            "runtimeExecutable": "/Users/jea/.nvm/versions/node/v12.16.1/bin/node"
+        },
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "启动程序parser",
+            "skipFiles": [
+                "<node_internals>/**"
+            ],
+            "program": "${workspaceFolder}/week04/toyBrowser/parser.js",
+            "runtimeExecutable": "/Users/jea/.nvm/versions/node/v12.16.1/bin/node"
         }
     ]
 }
