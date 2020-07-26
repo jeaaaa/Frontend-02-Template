@@ -229,7 +229,6 @@ function UnquotedAttributeValue(c){
     }
 }
 
-
 function selfClosingStartTag(c){
     if(c==">"){
         currentToken.isSelfClosing = true;
