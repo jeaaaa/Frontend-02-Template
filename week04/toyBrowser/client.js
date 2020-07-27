@@ -27,6 +27,8 @@ class Request{
             //逐步接收response
             const parser = new ResponseParser;
             if(connection){
+                connection.write(this.toString());
+            }else{
                 connection = net.createConnection({
                     host: this.host,
                     port: this.port
@@ -99,11 +101,11 @@ class ResponseParser{
                }else{
                    this.statusLine += char;
                }
-        }else if(this.current === this.WAITTING_HEADER_LINE_END){
+        }else if(this.current === this.WAITING_STATUS_LINE_END){
             if(char === '\n'){
                 this.current = this.WAITTING_HEADER_NAME;
             }
-        }else if(this.current === this.WAITTING_HEADER_SPACE){
+        }else if(this.current === this.WAITTING_HEADER_NAME){
             if(char === ':'){
                 this.current = this.WAITTING_HEADER_SPACE;
             }else if(char === '\r'){
