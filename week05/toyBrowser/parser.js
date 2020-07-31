@@ -14,11 +14,58 @@ function addCSSRules(text){
     rules.push(...ast.stylesheet.rules);    // 展开数组
 }
 
+function match(element, selector){
+    if(!selector || !element.attributes){   //如果是文本节点就跳出
+        return false;
+    }
+
+    if(selector.charAt(0) == "#"){
+        var attr = element.attributes.filter(attr=> attr.name === "id")[0];
+        if( attr && attr.value === selector.replace("#", '')){
+            return true;
+        }
+    }else if(selector.charAt(0) == "."){
+        var attr = element.attributes.filter(attr=>attr.name === "class")[0];
+        if(attr && attr.value === selector.replace(".", '')){
+            return true;
+        }
+    }else{
+        if(element.tagName === selector){
+            return true;
+        }
+    }
+    return false;
+}
+
 function computeCSS(element){
     var elements = stack.slice().reverse();     //获取父元素序列，slice拷贝stack数组避免栈里的stack污染
+    // 当前元素会逐级向外匹配
 
-    console.log(rules)
-    console.log(element);
+    if(!element.computedStyle){ //为了判断是否匹配添加的属性
+        element.computedStyle = {};
+    }
+
+    for (let rule of rules){    //双循环匹配选择器
+        var selectorParts = rule.selectors[0].split(" ").reverse(); //选择器也要从当前元素向外排列
+        if(!match(element, selectorParts[0]))
+            continue;
+
+        let matched = false;
+
+        var j = 1;
+        for (let i = 0; i < elements.length; i++) {
+            if(match(elements[i], selectorParts[j])){
+                j++;
+            }
+        }
+        if(j >= selectorParts.length){
+            matched = true;
+        }
+
+        if(matched){
+            //如果匹配到就加入
+        }
+    }
 }
 
 function emit(token){

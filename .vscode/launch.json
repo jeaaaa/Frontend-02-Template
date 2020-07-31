@@ -3,31 +3,8 @@
     // 悬停以查看现有属性的描述。
     // 欲了解更多信息，请访问: https://go.microsoft.com/fwlink/?linkid=830387
     /*windows*/
-    "version": "0.2.0",
-    "configurations": [
-        {
-            "type": "node",
-            "request": "launch",
-            "name": "启动程序",
-            "skipFiles": [
-                "<node_internals>/**"
-            ],
-            "program": "${file}"
-        }
-    ]
-    /*windows end*/
-    /*MBP*/
     // "version": "0.2.0",
     // "configurations": [
-    //     {
-    //         "name": "Attach",
-    //         "port": 9229,
-    //         "request": "attach",
-    //         "skipFiles": [
-    //             "<node_internals>/**"
-    //         ],
-    //         "type": "pwa-node"
-    //     },
     //     {
     //         "type": "node",
     //         "request": "launch",
@@ -35,19 +12,42 @@
     //         "skipFiles": [
     //             "<node_internals>/**"
     //         ],
-    //         "program": "${workspaceFolder}/week05/toyBrowser/client.js",
-    //         "runtimeExecutable": "/Users/jea/.nvm/versions/node/v12.16.1/bin/node"
-    //     },
-    //     {
-    //         "type": "node",
-    //         "request": "launch",
-    //         "name": "启动程序parser",
-    //         "skipFiles": [
-    //             "<node_internals>/**"
-    //         ],
-    //         "program": "${workspaceFolder}/week05/toyBrowser/parser.js",
-    //         "runtimeExecutable": "/Users/jea/.nvm/versions/node/v12.16.1/bin/node"
+    //         "program": "${file}"
     //     }
     // ]
+    /*windows end*/
+    /*MBP*/
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Attach",
+            "port": 9229,
+            "request": "attach",
+            "skipFiles": [
+                "<node_internals>/**"
+            ],
+            "type": "pwa-node"
+        },
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "启动程序",
+            "skipFiles": [
+                "<node_internals>/**"
+            ],
+            "program": "${workspaceFolder}/week05/toyBrowser/client.js",
+            "runtimeExecutable": "/Users/jea/.nvm/versions/node/v12.16.1/bin/node"
+        },
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "启动程序parser",
+            "skipFiles": [
+                "<node_internals>/**"
+            ],
+            "program": "${workspaceFolder}/week05/toyBrowser/parser.js",
+            "runtimeExecutable": "/Users/jea/.nvm/versions/node/v12.16.1/bin/node"
+        }
+    ]
     /*MBP end*/
 }

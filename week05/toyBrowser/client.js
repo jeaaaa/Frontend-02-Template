@@ -207,5 +207,5 @@ void async function(){
     let response = await request.send();
 
     let dom = parser.parserHTML(response.body);
-
+    console.log(dom)
 }();
