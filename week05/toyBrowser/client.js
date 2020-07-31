@@ -3,12 +3,14 @@ const parser = require("./parser.js");
 
 class Request{
     constructor(options){
+        // const { method = 'GET', host, port = '80', path = '/',body = {}, headers = {} } = options
         this.method = options.method || "GET",
         this.host = options.host;
         this.port = options.port || 80;
         this.path = options.path || "/";
         this.body = options.body || {};
         this.headers = options.headers || {};
+
         if( !this.headers["Content-Type"] ){
             this.headers["Content-Type"] = "application/x--www-fotm-urlencoded";
         }
@@ -29,15 +31,15 @@ class Request{
             if(connection){
                 connection.write(this.toString());
             }else{
-                connection = net.createConnection({
+                connection = net.createConnection({ //建立连接
                     host: this.host,
                     port: this.port
                 }, ()=>{
-                    connection.write(this.toString());
+                    connection.write(this.toString());  //成功后写入
                 })
             }
             connection.on('data', (data)=>{
-                parser.receive(data.toString());
+                parser.receive(data.toString());//转成字符串给状态机处理
                 if(parser.isFinished){
                     resolve(parser.response);
                     connection.end();
@@ -90,24 +92,24 @@ class ResponseParser{
     }
     receive(string){
         for (let i = 0; i < string.length; i++) {
-            this.receiveChar(string.charAt(i));            
+            this.receiveChar(string.charAt(i)); //查看每个字符           
         }
     }
-    receiveChar(char){
+    receiveChar(char){  //状态机
         if(this.current === this.WAITTING_STATUS_LINE){
-               if(char === '\r'){
-                   this.current = this.WAITTING_STATUS_LINE_END;
-               }else{
-                   this.statusLine += char;
-               }
+            if(char === '\r'){   //传进来的char等于\r说明结束了，就替换状态
+                this.current = this.WAITING_STATUS_LINE_END;
+            }else{
+                this.statusLine += char;
+            }
         }else if(this.current === this.WAITING_STATUS_LINE_END){
             if(char === '\n'){
                 this.current = this.WAITTING_HEADER_NAME;
             }
         }else if(this.current === this.WAITTING_HEADER_NAME){
-            if(char === ':'){
+            if(char === ':'){   // : 说明是HEADER里的分隔符
                 this.current = this.WAITTING_HEADER_SPACE;
-            }else if(char === '\r'){
+            }else if(char === '\r'){ // \r 说明header结束后的回车换行
                 this.current = this.WAITTING_HEADER_BLOCK_END;
                 if(this.headers['Transfer-Encoding'] === 'chunked'){
                     this.bodyParser = new TrunkedBodyParser();
@@ -205,5 +207,5 @@ void async function(){
     let response = await request.send();
 
     let dom = parser.parserHTML(response.body);
-    console.log(dom)
+
 }();

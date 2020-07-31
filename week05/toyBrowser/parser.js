@@ -3,12 +3,22 @@ const css = require('css')
 let currentToken = null;
 let currentAttribute = null;
 
-let stack = [{type: "document", children:[]}];
+let stack = [{type: "document", children:[]}]; // 栈的一个初始根节点
+let currentTextNode = null;
 
 let rules = [];
 function addCSSRules(text){
+    // 调用css parser分析css规则
     var ast = css.parse(text);
-    rules.push(...ast.stylesheet.rules);
+    // console.log(JSON.stringify(ast))
+    rules.push(...ast.stylesheet.rules);    // 展开数组
+}
+
+function computeCSS(element){
+    var elements = stack.slice().reverse();     //获取父元素序列，slice拷贝stack数组避免栈里的stack污染
+
+    console.log(rules)
+    console.log(element);
 }
 
 function emit(token){
@@ -24,16 +34,18 @@ function emit(token){
         element.tagName = token.tagName;
 
         for(let p in token){
-            if(p != "type" && p != "tagName"){
+            if(p != "type" && p != "tagName"){  // 属性入栈
                 element.attributes.push({
                     name: p,
                     value: token[p]
                 })
             }
         }
+        // 创建一个元素后，立即计算css
+        computeCSS(element);    // 计算添加css属性
 
         top.children.push(element);
-        // element.parent = top; 
+        element.parent = top; 
 
         if(!token.isSelfClosing){
             stack.push(element);
@@ -42,6 +54,7 @@ function emit(token){
 
     }else if(token.type == "endTag"){
         if(top.tagName != token.tagName){
+            console.log(top.tagName, token.tagName)
             throw new Error("Tag start end doesn't match")
         }else{
             //遇到style标签时，执行添加css规则操作
@@ -112,8 +125,8 @@ function endTagOpen(c){
     }
 }
 
-function tagName(){
-    if(c.match(/^[\t\n\f ]$/)){
+function tagName(c){
+    if(c.match(/^[\t\n\f ]$/)){  // \t: tab符  ,\n:换行符，\f:禁止符， 空格
         return beforeAttributeName;
     }else if(c == "/"){
         return  selfClosingStartTag;
@@ -134,7 +147,7 @@ function beforeAttributeName(c){
     }else if( c == "/" || c == ">" || c == EOF){
         return afterAttributeName(c);
     }else if(c == "="){
-        return beforeAttributeName;
+        // return beforeAttributeName;
     }else{
         currentAttribute = {
             name: "",
@@ -159,7 +172,7 @@ function attributeName(c){
     }
 }
 
-function beforeAttributeValue(){
+function beforeAttributeValue(c){
     if(c.match(/^[\t\n\f ]$/) || c == "/" || c == ">" || c == EOF){
         return beforeAttributeValue;
     }else if(c == "\""){
@@ -170,6 +183,29 @@ function beforeAttributeValue(){
 
     }else{
         return UnquotedAttributeValue(c);
+    }
+}
+
+function afterAttributeName(c){
+    if(c.match(/^[\t\n\f ]$/)){
+        return afterAttributeName;
+    }else if(c == "/"){
+        return selfClosingStartTag;
+    }else if(c == "="){
+        return beforeAttributeValue;
+    }else if(c == ">"){
+        currentToken[currentAttribute.name] = currentAttribute.value;
+        emit(currentToken);
+        return data;
+    }else if(c == EOF){
+
+    }else{
+        currentToken[currentAttribute.name] = currentAttribute.value;
+        currentAttribute = {
+            name: "",
+            value: ""
+        }
+        return attributeName(c);
     }
 }
 
@@ -198,6 +234,7 @@ function singleQuotedAttributeValue(c){
     }else{
         currentAttribute.value += c ;
         return doubleQuotedAttributeValue;
+        // return singleQuotedAttributeValue;
     }
 }
 
@@ -244,6 +281,7 @@ function UnquotedAttributeValue(c){
 function selfClosingStartTag(c){
     if(c==">"){
         currentToken.isSelfClosing = true;
+        emit(currentToken);
         return data;
     }else if(c == "EOF"){
         //报错
@@ -252,36 +290,16 @@ function selfClosingStartTag(c){
     }
 }
 
-function afterAttributeName(c){
-    if(c.match(/^[\t\n\f ]$/)){
-        return afterAttributeName;
-    }else if(c == "/"){
-        return selfClosingStartTag;
-    }else if(c == "="){
-        return beforeAttributeValue;
-    }else if(c == ">"){
-        currentToken[currentAttribute.name] = currentAttribute.value;
-        emit(currentToken);
-        return data;
-    }else if(c == EOF){
-
-    }else{
-        currentToken[currentAttribute.name] = currentAttribute.value;
-        currentAttribute = {
-            name: "",
-            value: ""
-        }
-        return attributeName(c);
-    }
-}
 
 
 module.exports.parserHTML = function parserHTML(html){
-    console.log(html);
-    let state = data;
+    
+    let state = data; // 先给初始状态
     for (let c of html) {
         state = state(c);
     }
     state = state(EOF);
-    console.log(state)
+    
+    console.log(stack)
+    return stack;
 }
