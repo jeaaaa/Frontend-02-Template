@@ -20,7 +20,7 @@
             "skipFiles": [
                 "<node_internals>/**"
             ],
-            "program": "${workspaceFolder}/week04/toyBrowser/client.js",
+            "program": "${workspaceFolder}/week05/toyBrowser/client.js",
             "runtimeExecutable": "/Users/jea/.nvm/versions/node/v12.16.1/bin/node"
         },
         {
@@ -30,7 +30,7 @@
             "skipFiles": [
                 "<node_internals>/**"
             ],
-            "program": "${workspaceFolder}/week04/toyBrowser/parser.js",
+            "program": "${workspaceFolder}/week05/toyBrowser/parser.js",
             "runtimeExecutable": "/Users/jea/.nvm/versions/node/v12.16.1/bin/node"
         }
     ]
