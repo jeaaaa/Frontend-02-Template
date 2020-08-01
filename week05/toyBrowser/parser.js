@@ -26,8 +26,13 @@ function match(element, selector){
         }
     }else if(selector.charAt(0) == "."){
         var attr = element.attributes.filter(attr=>attr.name === "class")[0];
-        if(attr && attr.value === selector.replace(".", '')){
-            return true;
+        if(attr && attr.value){
+            let attrs = attr.value.split(" ");
+            for( let i=0;i<attrs.length;i++ ){
+                if(attrs[i] === selector.replace(".", '')){
+                    return true;
+                }
+            }
         }
     }else{
         if(element.tagName === selector){
@@ -35,6 +40,25 @@ function match(element, selector){
         }
     }
     return false;
+}
+
+function specificity(selector){
+    var p = [0, 0, 0, 0];
+    var selectorParts = selector.split(" ");
+    for(var part of selectorParts){
+        if(part.charAt(0) == "#" ){
+            p[1] += 1;
+        }else if(part.charAt(0) == "."){
+            p[2] += 1;
+        }else{
+            p[3] += 1;
+        }
+    }
+    return p;
+}
+
+function compare(sp1, sp2){
+    
 }
 
 function computeCSS(element){
@@ -63,7 +87,15 @@ function computeCSS(element){
         }
 
         if(matched){
-            //如果匹配到就加入
+            //如果匹配到就加入到元素上
+            var computedStyle = element.computedStyle;
+            for(var declaration of rule.declarations){  //取出rule规则里的属性
+                if(!computedStyle[declaration.property]){   //如果没有属性就创建一个对象储存属性值
+                    computedStyle[declaration.property] = {}
+                }
+                computedStyle[declaration.property].value = declaration.value;
+            }
+            console.log(element.computedStyle);
         }
     }
 }

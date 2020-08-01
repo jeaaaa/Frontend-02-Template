@@ -27,7 +27,7 @@ class Request{
     send(connection){
         return new Promise((resolve, reject)=>{
             //逐步接收response
-            const parser = new ResponseParser;
+            const parser = new ResponseParser();
             if(connection){
                 connection.write(this.toString());
             }else{
