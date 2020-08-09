@@ -26,6 +26,214 @@
         <div class="fixed"></div>
         <div class="auto"></div>
     </div>
+    <div class="ok">
+        <div class="ol">
+            <div class="op">
+                <div class="pl"></div>
+                <div class="cd"></div>
+                <div data.id="ud" id="ids" >
+                    <div class="class">
+                        <div class="chi">
+                            <div class="ui"></div>
+                        </div>
+                        <div id="er"></div>
+                    </div>
+                    <div class="class1"></div>
+                </div>
+                <div class="lo">
+                    <div class="class"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        //先找确定父元素是否匹配，在看子元素是否匹配
+        function match(selector, element) {
+            console.log(selector)
+            const selectorArr = dealSelector(selector);
+            
+            if( element ){
+                // 获取element的tagname,id,class
+                const elementID = element.id?`#${element.id}`:false;
+                const elementClass = element.className?`.${element.className}`:false;
+                const elementTag = element.tagName.toLowerCase();
 
+                // console.log(elementID, elementClass, elementTag)
+                for (let i = 0; i < selectorArr.length; i++) {
+                    if( selectorArr[i] === elementID ){
+                        
+                        const rootElemnt = getMatchParent(element, selectorArr, i);
+
+                        const rootID = rootElemnt.id?`#${rootElemnt.id}`:false;
+                        const rootClass = rootElemnt.className?`.${rootElemnt.className}`:false;
+                        const rootTag = rootElemnt.tagName.toLowerCase();
+
+                        const parentElementArr = [rootTag, rootClass, rootID];
+                        if(parentElementArr.includes(selectorArr[0])){
+                            //继续比较子元素
+                            console.log(element.childNodes)
+                            let child = getMatchChild(element, selectorArr, i);
+                            console.log(child)
+                            return true;
+                        }else{
+                            return false;
+                        }
+                    }
+                }
+            }
+            return false;
+        }
+
+        function getMatchParent(element, selectorArr, pos){
+            // 递归查找 直至匹配的最外层
+            let root = element;
+            if( pos >= 0 && root.parentElement){
+                if( selectorArr[pos-1] === '+'){
+                    // 紧邻兄弟元素，匹配前一个
+                    const prevID = element.previousSibling.id?`#${element.previousSibling.id}`:false;
+                    const prevClass = element.previousSibling.className?`.${element.previousSibling.className}`:false;
+                    const prevTag = element.previousSibling.tagName.toLowerCase();
+                    const prevArr = [prevID, prevClass, prevID];
+                    for (let i = 0; i < prevArr.length; i++) {
+                        if(prevArr[i] === selectorArr[pos-1]){
+                            root = getMatchParent(root.previousSibling, selectorArr, pos-3);
+                        }
+                    }
+                }else if(selectorArr[pos-1] === '~'){
+                    let sibling = siblings(element);
+                    console.log(sibling);
+                    for (const par of sibling) {
+                        for (const name of par) {
+                            if( name === selectorArr[pos-2] ){
+                                console.log(selectorArr[pos-2])
+                                root = getMatchParent(root.parentElement, selectorArr, pos-3);
+                            }
+                        }
+                    }
+                }else if(selectorArr[pos-1] === '>'){
+                    //子代选择器
+                    root = getMatchParent(root.parentElement, selectorArr, pos-3);
+                }else{
+                    
+                    const elementID = element.parentElement.id?`#${element.parentElement.id}`:false;
+                    const elementClass = element.parentElement.className?`.${element.parentElement.className}`:false;
+                    const elementTag = element.parentElement.tagName.toLowerCase();
+
+                    const parentElementArr = [elementTag, elementClass, elementID];
+                    
+                    for (let i = 0; i < parentElementArr.length; i++) {
+                        if(parentElementArr[i] === selectorArr[pos-1]){
+                            root = getMatchParent(root.parentElement, selectorArr, pos-1);
+                        }
+                    }
+                }
+            }
+            return root;
+        }
+
+        function getMatchChild(element, selectorArr, pos){
+            // 查看子元素
+            let root = element;
+            let b = element.childNodes;
+            console.log(element)
+            console.log(element.nextSibling)
+            //去掉换行的空格
+            for(let i=0; i<b.length;i++){
+                if(b[i].nodeName == "#text" && !/\s/.test(b.nodeValue)){
+                    element.removeChild(b[i]);
+                }
+            }
+            console.log(b)
+            if(pos <= selectorArr.length && b){
+                if( selectorArr[pos+1] === '+'){
+                    // 紧邻兄弟元素，匹配前一个
+                    const nextID = b.id?`#${element.nextSibling.id}`:false;
+                    const nextClass = element.nextSibling.className?`.${element.nextSibling.className}`:false;
+                    const nextTag = element.nextSibling.tagName.toLowerCase();
+                    const nextArr = [nextID, nextClass, nextID];
+                    for (let i = 0; i < nextArr.length; i++) {
+                        if(nextArr[i] === selectorArr[pos+1]){
+                            root = getMatchParent(root.nextSibling, selectorArr, pos+3);
+                        }
+                    }
+                }else {
+                    console.log(b)
+                }
+            }
+            return root;
+        }
+
+        function siblings(element) {
+            // 找去element的所有兄弟元素
+            let a = [];
+            var p = element.parentNode.children;
+            for(let i = 0; i<p.length; i++) {
+                if(p[i] !== element){
+                    const elId = p[i].id?`#${p[i].id}`:false;
+                    const elClass = p[i].className?`.${p[i].className}`:false;
+                    const elTag = p[i].tagName.toLowerCase();
+                    const elArr = [elTag, elClass, elId];
+                    a.push(elArr);
+                } 
+            }
+            return a;
+        }
+
+        function dealSelector(selector){
+            let selectorArr = [];
+            let selectorName = "";
+            for(let c of selector){
+                // console.log(c)
+                if( c.match(/^[a-z]$/)){
+                    selectorName += c;
+                }else if( c === '#' || c === '.' ){
+                    if(selectorName.length>0){
+                        //大于零说明之前有值，#是开始，前面的就放到数组里
+                        selectorArr.push(selectorName);
+                        selectorName = c;
+                    }else{
+                        //否则就重新开始
+                        selectorName = c;
+                    }
+                }else if( c === ' '){
+                    if(selectorName.length>0){
+                        selectorArr.push(selectorName);
+                        selectorName = "";
+                    }else{
+                        selectorName = "";
+                    }
+                }else if( c === '>' || c === '+' || c === '~'){
+                    if(selectorName.length>0){
+                        selectorArr.push(selectorName);
+                        selectorArr.push(c);
+                        selectorName = "";
+                    }else{
+                        selectorName = ""
+                    }
+                }else if( c === '|' ){
+                    console.log(c)
+                    if(selectorName.length>0){
+                        if( selectorName === '|'){
+                            selectorName += c;
+                        }else{
+                            selectorArr.push(selectorName);
+                            selectorName = c;
+                        }
+                    }else if(selectorName === '||'){
+                        selectorArr.push(selectorName);
+                        selectorName = "";
+                    }
+                }
+            }
+            //todo: []属性选择器，:伪元素
+            //添加最后一个选择器进数组
+            selectorArr.push(selectorName)
+            return selectorArr;
+        }
+
+        let res = match(".ok>.ol .op .pl~#ids+.lo~.cl||#er", document.getElementById("ids"));
+        console.log(res)
+    </script>
 </body>
 </html>
