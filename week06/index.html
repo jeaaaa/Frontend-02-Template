@@ -137,7 +137,7 @@
             let root = element;
             let b = element.childNodes;
             console.log(element)
-            console.log(element.nextSibling)
+            console.log(element.nextElementSibling)
             //去掉换行的空格
             for(let i=0; i<b.length;i++){
                 if(b[i].nodeName == "#text" && !/\s/.test(b.nodeValue)){
@@ -148,13 +148,23 @@
             if(pos <= selectorArr.length && b){
                 if( selectorArr[pos+1] === '+'){
                     // 紧邻兄弟元素，匹配前一个
-                    const nextID = b.id?`#${element.nextSibling.id}`:false;
-                    const nextClass = element.nextSibling.className?`.${element.nextSibling.className}`:false;
-                    const nextTag = element.nextSibling.tagName.toLowerCase();
+                    const nextID = element.nextElementSibling?`#${element.nextElementSibling.id}`:false;
+                    const nextClass = element.nextElementSibling.className?`.${element.nextElementSibling.className}`:false;
+                    const nextTag = element.nextElementSibling.tagName.toLowerCase();
                     const nextArr = [nextID, nextClass, nextID];
                     for (let i = 0; i < nextArr.length; i++) {
                         if(nextArr[i] === selectorArr[pos+1]){
-                            root = getMatchParent(root.nextSibling, selectorArr, pos+3);
+                            root = getMatchParent(root.nextElementSibling, selectorArr, pos+3);
+                        }
+                    }
+                }else if(selectorArr[pos-1] === '~'){
+                    let sibling = siblings(element);
+                    console.log(sibling);
+                    for (const par of sibling) {
+                        for (const name of par) {
+                            if( name === selectorArr[pos-2] ){
+                                root = getMatchParent(root.nextElementSibling, selectorArr, pos-3);
+                            }
                         }
                     }
                 }else {
