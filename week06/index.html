@@ -157,18 +157,31 @@
                             root = getMatchParent(root.nextElementSibling, selectorArr, pos+3);
                         }
                     }
-                }else if(selectorArr[pos-1] === '~'){
+                }else if(selectorArr[pos+1] === '~'){
                     let sibling = siblings(element);
-                    console.log(sibling);
                     for (const par of sibling) {
                         for (const name of par) {
-                            if( name === selectorArr[pos-2] ){
-                                root = getMatchParent(root.nextElementSibling, selectorArr, pos-3);
+                            if( name === selectorArr[pos+2] ){
+                                root = getMatchParent(root.nextElementSibling, selectorArr, pos+3);
                             }
                         }
                     }
-                }else {
-                    console.log(b)
+                }else if(selectorArr[pos+1] === '>'){
+                    //子代选择器
+                    root = getMatchParent(root.nextElementSibling, selectorArr, pos+3);
+                }else{
+                    let childNameArr = [];
+                    for (const c of b) {
+                        const cID = c.id?`#${c.id}`:false;
+                        const cClass = c.className?`.${c.className}`:false;
+                        const cTag = c.tagName.toLowerCase();
+                        childNameArr.push([cID, cClass, cTag]);
+                    }
+                    for (const cn of childNameArr) {
+                        if( cn.includes(selectorArr[pos=1]) ){
+                            root = getMatchParent(root.nextElementSibling, selectorArr, pos+1);
+                        }
+                    }
                 }
             }
             return root;
@@ -242,7 +255,7 @@
             return selectorArr;
         }
 
-        let res = match(".ok>.ol .op .pl~#ids+.lo~.cl||#er", document.getElementById("ids"));
+        let res = match(".ok>.ol .op .pl~#ids .class", document.getElementById("ids"));
         console.log(res)
     </script>
 </body>
