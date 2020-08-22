@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="a">
+        <span>1</span>
+        <p>2</p>
+        <p>3</p>
+        <div>4</div>
+    </div>
+
+    <div id="b">
+        1234
+        <span style="background-color: aqua;">56789</span>
+        0987654321
+    </div>
+</body>
+<script>
+    let element = document.getElementById('a');
+
+    function reversechildren(element){
+        let range = new Range();
+        range.selectNodeContents(element);
+
+        let fragment = range.extractContents();
+        var l = fragment.childNodes.length;
+        while(l-- > 0){
+            fragment.appendChild(fragment.childNodes[l])
+        }
+
+        element.appendChild(fragment);
+    }
+
+    reversechildren(element);
+
+    let range = new Range();
+    range.setStart(document.getElementById('b').childNodes[0], 1);
+    range.setEnd(document.getElementById('b').childNodes[2],4);
+    range.extractContents();
+</script>
+</html>
