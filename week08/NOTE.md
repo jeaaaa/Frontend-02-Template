@@ -165,11 +165,75 @@ extractContents出来的是fragment对象
 ### CSSOM
 document.styleSheets
 #### rules
+一个styleSheets对应一个style标签或一个link标签
 * document.styleSheets[0].cssRules
-* document.styleSheets[0].insertRule("p{color:pink;}", 0)
+* document.styleSheets[0].insertRule("p{color:pink;}", 0);   //（传入的代码，插入的位置）
 * document.styleSheets[0].removeRule(0)
 
-##
+* CSSStyleRule
+    * selectorText String
+    * style K-V结构
+* CSSCharsetRule
+* CSSImportRule
+* CSSMediaRule
+* CSSFontFaceRule
+* CSSPageRule
+* CSSNamespaceRule
+* CSSKeyframesRule
+* CSSKeyframeRule
+* CSSSupportsRule
+
+#### getComputedStyle   取到页面上元素真实渲染所需要的CSS属性，同时也能访问到伪元素上
+* window.getComputedStyle(elt, pseudoElt);
+    * elt 想要获取的元素
+    * pseudoElt 可选，伪元素
+
+### CSSOM View  获取layout或者render之后得到的信息，跟浏览器最后画上去的视图相关
+
+#### window 浏览器窗口
+* window.innerHeight, window.innerWidth //实际上使用的viewport
+* window.outerWidth, window.outerHeight //包含浏览器自带工具栏的宽高 
+* window.devicePixelRatio   //屏幕上的物理像素跟代码里逻辑像素PX的比值
+* window.screen
+    * window.screen.width
+    * window.screen.height
+    * window.screen.availWidth  //可以使用的宽和高
+    * window.screen.availHeight
+
+* window.open("about:blank", "_blank", "width=100,height=100,left=100,right=100")
+* moveTo(x, y)
+* moveBy(x, y)
+* resizeTo(x, y)
+* resizeBy(x, y)
+
+#### scroll
+* scrollTop
+* scrollLeft
+* scrollWidth
+* scrollHeight
+* scroll(x, y)  //滚动到特定位置
+* scrollBy(x, y)    //当前基础上滚动一个差值
+* scrollIntoView()  //强制滚动屏幕的可见区域
+
+#### layout
+* getClientRects()  //每个元素上都可以调用来获取生成的所有的盒
+* getBoundingClientRect()   //  取一个包裹元素所有内容的盒，取元素最外层的盒
+
+* window
+    * scrollX
+    * scrollY
+    * scroll(x, y)
+    * scrollBy(x, y)
 
 
-## 
+## 其他API
+来自于四个标准化组织
+* khronos
+    * webGL
+* ECMA
+    * ECMAScript
+* WHATWG
+    * HTML
+* W3C
+    * webaudio
+    * CG/WG
