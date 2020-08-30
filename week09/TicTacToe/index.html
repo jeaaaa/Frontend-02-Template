@@ -31,6 +31,7 @@
 </body>
 </html>
 <script>
+    // 使用一位数组，用乘法区分行和列
     let pattern = [
         [0, 0, 0],
         [0, 0, 0],
@@ -38,6 +39,7 @@
     ]
     let color = 1;
 
+    /** 绘制棋盘 */
     function show(){
         let board = document.getElementById('board');
         board.innerHTML = "";
@@ -46,19 +48,20 @@
             for (let y = 0; y < 3; y++) {
                 let cell = document.createElement('div');
                 cell.classList.add('cell');
-                cell.innerText = pattern[x][y] === 2?"❌":pattern[x][y] === 1?"⭕️":"";
-                cell.addEventListener('click', ()=> userMove(x, y));
+                cell.innerText = pattern[x][y] === 2?"❌"
+                                :pattern[x][y] === 1?"⭕️":"";
+                cell.addEventListener('click', ()=> userMove(x, y));    //添加监听事件
                 board.appendChild(cell);
             }
         }
     }
 
     function userMove(x, y){
-        pattern[x][y] = color;
+        pattern[x][y] = color;      //给点击的点赋值
         if(check(pattern, color)){
             alert(color == 2?'❌':'⭕️')
         }
-        color = 3-color;
+        color = 3-color;    //每次点击都让color从1变2，从2变1
         show();
         computerMove();
     }
@@ -76,12 +79,13 @@
         show();
     }
 
+    /* 判断胜负， 验证三横三纵两斜是否是同一颜色*/
     function check(pattern, color){
         //验证横排
         for (let i = 0; i < 3; i++) {
             let win = true;
             for (let l = 0; l < 3; l++) {
-                if(pattern[i][l] !== color){
+                if(pattern[i][l] !== color){    //查看每个格是否是当前落子颜色
                     win = false;
                 }
             }
@@ -102,6 +106,7 @@
                 return true;
             }
         }
+        /* 加{} 变为局部变量 */
         //左斜
         {
             let win = true;
@@ -126,7 +131,6 @@
                 return true;
             }
         }
-
         return false;
     }
 
@@ -137,11 +141,11 @@
     function willwin(pattern, color){
         for (let x = 0; x < 3; x++) {
             for (let y = 0; y < 3; y++) {
-                if( pattern[x][y] )
+                if( pattern[x][y] ) //检查每个位置，只要不空就继续执行
                     continue;
 
                 let tmp = clone(pattern);
-                tmp[x][y] = color;
+                tmp[x][y] = color;  // 给克隆的数组赋值，然后检查是否赢了
                 if(check(tmp, color)){
                     return [x, y];
                 }
@@ -150,14 +154,24 @@
         return null;
     }
 
+    /*
+    *   最佳选择策略
+    *   第一层：要赢，
+    *   第二层：别输
+    *   第三层：和
+    *   对方最好的策略对我们来说是最糟糕的策略，我们最好的策略对对方是最糟糕的策略
+    */
     function bestChoice(pattern, color){
         let p;
         if( p = willwin(pattern, color)){
+            // result 输用-1， 赢用+1， 和用 0 
+            // point 下一步要走的点
             return {
                 point: p,
                 result: 1
             }
         }
+        // 考察下每一个点之后对方面对的局面
         let result = -2;
         let point = null;
         outer: for (let i = 0; i < 3; i++) {
