@@ -43,13 +43,123 @@
 
             console.log(result)
         }
+        yield {
+            type: "EOF"
+        }
     }
 
-    for( let token of tokenize("1024+10*35")){
-        console.log(token)
+    let source = [];
+
+    for( let token of tokenize("1+2+3")){
+        if(token.type !== "Whitespace" && token.type !== "LineTerminator"){
+            source.push(token)
+        }
+    }
+    // 每个产生式对应着一个函数
+    function Expression(tokens){
+        if(source[0].type === "AdditiveExpression" && source[1] && source[1].type === "EOF"){
+            let node = {
+                type: "Expression",
+                children: [source.shift(), source.shift()]
+            }
+            source.unshift(node);
+            return node;
+        }
+        AdditiveExpression(source);
+        return Expression(source);
     }
 
-    tokenize("1024+10*35")
+    // AdditiveExpression 包含了 MultiplicativeExpression 的所有逻辑
+    function AdditiveExpression(source){
+        if(source[0].type === 'MultiplicativeExpression'){    // 处理第一条的MultiplicativeExpression
+            let node = {
+                type: "AdditiveExpression",
+                children: [source[0]]
+            }
+            source[0] = node;
+            return AdditiveExpression(source);
+        }
+
+        if(source[0].type === "AdditiveExpression" && source[1] && source[1].type === "+"){
+            let node = {
+                type: "AdditiveExpression",
+                operator: "+",
+                children: []
+            }
+            node.children.push(source.shift());
+            node.children.push(source.shift());
+            MultiplicativeExpression(source)    //在第三次前调用 处理source里面的非总结符
+            node.children.push(source.shift());
+            source.unshift(node);
+            return AdditiveExpression(source);
+        }
+
+        if(source[0].type === "AdditiveExpression" && source[1] && source[1].type === "-"){
+            let node = {
+                type: "AdditiveExpression",
+                operator: "-",
+                children: []
+            }
+            node.children.push(source.shift());
+            node.children.push(source.shift());
+            MultiplicativeExpression(source); 
+            node.children.push(source.shift());
+            source.unshift(node);
+            return AdditiveExpression(source);
+        }
+
+        if(source[0].type === "AdditiveExpression"){
+            return source[0]
+        }
+        MultiplicativeExpression(source);
+        return AdditiveExpression(source);
+    }
+
+    function MultiplicativeExpression(source){
+        if(source[0].type === 'Number'){    // Number 情况
+            let node = {
+                type: "MultiplicativeExpression",
+                children: [source[0]]
+            }
+            source[0] = node;
+            return MultiplicativeExpression(source);
+        }
+        // MultiplicativeExpression 后面跟 * 
+        if(source[0].type === "MultiplicativeExpression" && source[1] && source[1].type === "*"){
+            let node = {
+                type: "MultiplicativeExpression",
+                operator: "*",
+                children: []
+            }
+            node.children.push(source.shift());
+            node.children.push(source.shift());
+            node.children.push(source.shift());
+            source.unshift(node);
+            return MultiplicativeExpression(source);
+        }
+        // MultiplicativeExpression 后面跟 /
+        if(source[0].type === "MultiplicativeExpression" && source[1] && source[1].type === "/"){
+            let node = {
+                type: "MultiplicativeExpression",
+                operator: "/",
+                children: []
+            }
+            node.children.push(source.shift());
+            node.children.push(source.shift());
+            node.children.push(source.shift());
+            source.unshift(node);
+            return MultiplicativeExpression(source);
+        }
+        // 递归结束，上面三种情况除外就跳出
+        if(source[0].type === "MultiplicativeExpression"){
+            return source[0]
+        }
+
+        return MultiplicativeExpression(source)
+    }
+
+    console.log(AdditiveExpression(source)) 
+    
 </script>
 </body>
 </html>
