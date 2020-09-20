@@ -83,3 +83,4 @@ config|❎|✅|❎|❎
 npm install -g webpack webpack-cli //全局安装webpack-cli
 npm install --save-dev webpack babel-loader
 npm install --save-dev @babel/core @babel/preset-env
+npm install --save-dev webpack-dev-server
