@@ -1,6 +1,6 @@
-import { Component, createElement } from './framework.js'
+import { Component } from './framework.js'
 
-class Carousel extends Component {
+export class Carousel extends Component {
     constructor(){
         super();
         this.attributes = Object.create(null);
@@ -81,15 +81,3 @@ class Carousel extends Component {
         parent.appendChild(this.render())
     }
 }
-
-let b = [
-    'https://picsum.photos/id/231/700/500',
-    'https://picsum.photos/id/232/700/500',
-    'https://picsum.photos/id/233/700/500',
-    'https://picsum.photos/id/234/700/500',
-    'https://picsum.photos/id/235/700/500',
-]
-
-let a = <Carousel src={b}/>
-
-a.mountTo(document.body);
