@@ -54,7 +54,7 @@ export class Listener {
             }
 
             let mouseup = event => {
-                let context = contexts.set("mouse"+ (1 <<event.button));
+                let context = contexts.get("mouse"+ (1 <<event.button));
                 recognizer.end(event, context);
                 contexts.delete("mouse"+ (1 <<event.button));
 
