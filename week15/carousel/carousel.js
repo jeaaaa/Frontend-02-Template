@@ -1,4 +1,7 @@
 import { Component } from './framework.js'
+import { enableGesture } from './gesture.js'
+import { Timeline, Animation } from './animation.js'; 
+import { ease } from './ease.js'
 
 export class Carousel extends Component {
     constructor(){
@@ -18,42 +21,45 @@ export class Carousel extends Component {
             this.root.appendChild(child);
         }
 
+        let children = this.root.children;
+
         let position = 0;
-        this.root.addEventListener("mousedown", event =>{
-            let children = this.root.children;
-            let startX = event.clientX;
+        
+        // this.root.addEventListener("mousedown", event =>{
+        //     let children = this.root.children;
+        //     let startX = event.clientX;
 
-            let move = event => {
-                let x = event.clientX-startX;
+        //     let move = event => {
+        //         let x = event.clientX-startX;
 
-                let current = position - ((x-x%700)/700);
+        //         let current = position - ((x-x%700)/700);
 
-                for (let offset of [-2 ,-1, 0, 1, 2]) {    //图片当前屏幕元素的中心
-                    let pos = current + offset;
-                    pos = (pos + children.length )% children.length;  //让-1变成3
+        //         for (let offset of [-2 ,-1, 0, 1, 2]) {    //图片当前屏幕元素的中心
+        //             let pos = current + offset;
+        //             pos = (pos + children.length )% children.length;  //让-1变成3
 
-                    children[pos].style.transition = "none";
-                    children[pos].style.transform = `translateX(${-pos*700 + offset*700 + x % 700}px)`
-                }
-            }
-            let up = event => {
-                let x = event.clientX-startX;
-                position = position - Math.round(x/700);
-                for (let offset of [0, -Math.sign(Math.round(x/700)-x + 350*Math.sign(x))]) {    //图片当前屏幕元素的中心
-                    let pos = position + offset;
-                    pos = (pos + children.length )% children.length;  //让-1变成3
+        //             children[pos].style.transition = "none";
+        //             children[pos].style.transform = `translateX(${-pos*700 + offset*700 + x % 700}px)`
+        //         }
+        //     }
+        //     let up = event => {
+        //         let x = event.clientX-startX;
+        //         position = position - Math.round(x/700);
+        //         for (let offset of [0, -Math.sign(Math.round(x/700)-x + 350*Math.sign(x))]) {    //图片当前屏幕元素的中心
+        //             let pos = position + offset;
+        //             pos = (pos + children.length )% children.length;  //让-1变成3
 
-                    children[pos].style.transition = "";
-                    children[pos].style.transform = `translateX(${-pos*700 + offset*700}px)`
-                }
-                document.removeEventListener("mousemove", move);
-                document.removeEventListener("mouseup", up);
-            }
+        //             children[pos].style.transition = "";
+        //             children[pos].style.transform = `translateX(${-pos*700 + offset*700}px)`
+        //         }
+        //         document.removeEventListener("mousemove", move);
+        //         document.removeEventListener("mouseup", up);
+        //     }
 
-            document.addEventListener("mousemove", move);
+        //     document.addEventListener("mousemove", move);
 
-            document.addEventListener("mouseup", up);
-        })
+        //     document.addEventListener("mouseup", up);
+        // })
 
 
         // let currentIndex = 0;
