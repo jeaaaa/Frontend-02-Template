@@ -6,3 +6,5 @@ https://yeoman.io/learning/index.html
 
 
 npx 安装
+
+babel 编译js
