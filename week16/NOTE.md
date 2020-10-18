@@ -1,3 +1,8 @@
 # 学习笔记
 
-233test
+yeoman 搭建
+
+https://yeoman.io/learning/index.html
+
+
+npx 安装
