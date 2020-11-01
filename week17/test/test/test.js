@@ -15,4 +15,3 @@ describe("add function testing", function () {
         assert.equal(mul(-1, 7), -7);
     });
 })
-
